@@ -1,37 +1,33 @@
 <?php
 
-process();
+$start_time = microtime(true);
 
-function process() {
-	$start_time = microtime(true);
-	
-	// enable errors printing
-	// comment this on release
-	ini_set('display_errors', 1);
-	error_reporting(E_ALL);
+// enable errors printing
+// comment this on release
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
 
-	$x = (float) $_POST['Xcor'];
-	$y = (float) $_POST['Ycor'];
-	$r = (float) $_POST['Rrad'];
-	
-	echo "Entered values:<br>
-	<table>
-		<tr> <td>x</td> <td>$x</td> </tr>
-		<tr> <td>y</td> <td>$y</td> </tr>
-		<tr> <td>r</td> <td>$r</td> </tr>
-	</table><br>";
-	
-	if(is_point_in_region($x, $y, $r)) {
-		echo "The point is in the region";
-	} else {
-		echo "The point isn't in the region";
-	}
-	echo "<br><br>";
-	
-	echo "Current date and time: ", date('h:i a F d, Y'), "<br>";
-	$exec_time = microtime(true) - $start_time;
-	echo sprintf("Script execution time: ~%.5f ms", $exec_time);
+$x = (float) $_POST['Xcor'];
+$y = (float) $_POST['Ycor'];
+$r = (float) $_POST['Rrad'];
+
+echo "Entered values:<br>
+<table>
+	<tr> <td>x</td> <td>$x</td> </tr>
+	<tr> <td>y</td> <td>$y</td> </tr>
+	<tr> <td>r</td> <td>$r</td> </tr>
+</table><br>";
+
+if(is_point_in_region($x, $y, $r)) {
+	echo "The point is in the region";
+} else {
+	echo "The point isn't in the region";
 }
+echo "<br><br>";
+
+echo "Current date and time: ", date('h:i a F d, Y'), "<br>";
+$exec_time = microtime(true) - $start_time;
+echo sprintf("Script execution time: ~%.5f ms", $exec_time);
 
 
 function is_point_in_region($x, $y, $r) : bool {
