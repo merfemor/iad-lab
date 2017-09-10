@@ -10,26 +10,66 @@
 			font-size: 150%;
 			font-family: "Garamond", monospace;
 		}
+
+		.forCascade{
+			text-align: justify;
+		}
+
+		.coorplate {
+			display: inline-block;
+		}
+
+		.input {
+			display: inline-block;
+		}
 	</style>
 </head>
 <body>
-	<div id = "header">
+	<div class = "header">
 		<img src="./gifs/cats_01.gif" align=left hspace = 0>
 		<img src="./gifs/cats_04.gif" align=right hspace = 0>
 		<h2 align="center"> gr.P3211 var.305</h2>
 		<h2 align = "center"> Made by Roman Efremov & Danil Sinitskiy </h2>
 		<hr/>
 	</div>
-	<div id = "post">
-		<form method = "POST" action = "index.php">
-			<p>Input coordinate X:</p>
-			<p><input type = "text" name = "Xcor"></p>
-			<p>Input coordinate Y:</p>
-			<p><input type = "text" name = "Ycor"></p>
-			<p>Input radius R:</p>
-			<p><input type = "text" name = "Rrad"></p>
-			<p><input type="submit"></p>
-		</form>
+
+	<div class = "forCascade">
+		<div class = "input">
+			<form method = "POST" action = "index.php">
+				<p>Input coordinate X:</p>
+				<p><input type = "text" name = "Xcor"></p>
+				<p>Input coordinate Y:</p>
+				<p><input type = "text" name = "Ycor"></p>
+				<p>Input radius R:</p>
+				<p><input type = "text" name = "Rrad"></p>
+				<p><input type="submit" value="Submit"></p>
+			</form>
+		</div>
+		
+		<div class = "coorplate">
+			<img src="./pics/areas.png" margin = 15px>
+		</div>
+
+		<div class = "IOtable">
+			<table>
+				<tr>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+				</tr>
+			</table>
+		</div>
 	</div>
 </body>
 </html>
