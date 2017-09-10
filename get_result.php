@@ -30,7 +30,7 @@ $exec_time = microtime(true) - $start_time;
 echo sprintf("Script execution time: ~%.5f ms", $exec_time);
 
 
-function is_point_in_region($x, $y, $r) : bool {
+function is_point_in_region($x, $y, $r) {
 	if(
 		// if in the rectangle
 		($x <= $r and $x >= 0 and $y <= $r/2 and $y >= 0) or
@@ -50,13 +50,13 @@ function is_point_in_region($x, $y, $r) : bool {
 function position_of_point(
 			$point_x, $point_y, 
 			$line1_x, $line1_y,
-			$line2_x, $line2_y) : int {
+			$line2_x, $line2_y) {
 	return ($point_y - $line1_y) * ($line2_x - $line1_x) - 
 			($point_x - $line1_x) * ($line2_y - $line1_y);
 }
 
 
-function distance_between($x1, $y1, $x2, $y2) : float {
+function distance_between($x1, $y1, $x2, $y2) {
 	return sqrt(pow(2, $x2 - $x1) + pow(2, $y2 - $y1));
 }
 ?>
