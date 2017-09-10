@@ -1,5 +1,5 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
-"http://www.w3.org/TR/html4/strict.dtd>
+http://www.w3.org/TR/html4/strict.dtd>
 <html>
 <head>
 	<meta charset = "utf-8">
@@ -11,15 +11,15 @@
 			font-family: "Garamond", monospace;
 		}
 
-		.forCascade{
+		.InputLogic{
 			text-align: justify;
 		}
 
-		.coorplate {
+		DIV[class = "coorplate"] {
 			display: inline-block;
 		}
 
-		.input {
+		#input {
 			display: inline-block;
 		}
 	</style>
@@ -33,42 +33,54 @@
 		<hr/>
 	</div>
 
-	<div class = "forCascade">
-		<div class = "input">
+	<div class = "InputLogic">
+		<div id = "input">
 			<form method = "POST" action = "index.php">
-				<p>Input coordinate X:</p>
-				<p><input type = "text" name = "Xcor"></p>
-				<p>Input coordinate Y:</p>
-				<p><input type = "text" name = "Ycor"></p>
-				<p>Input radius R:</p>
-				<p><input type = "text" name = "Rrad"></p>
-				<p><input type="submit" value="Submit"></p>
+				<div id = "X">
+					<p>Input coordinate X:</p>
+					<p><input type = "text" id = "Xcor"></p>
+					<script>
+						function validator(){
+                            var s = this.value;
+							var sf = false;
+							for (var i = 0; i < s.length; i++) {
+                                if (s[i] == '-') {
+                                    if (sf) {
+                                        s = s.substring(0, i);
+                                        break;
+                                    }
+                                    else {
+                                        sf = true;
+                                    }
+                                }
+                                if (s[i] < '0' || s[i] > '9') {
+                                    s = s.substring(0, i);
+                                    break;
+                                }
+                            }
+                            document.getElementById(this.id).value = s;
+							return s;
+						}
+
+						Xcor.addEventListener("keyup", validator);
+					</script>
+				</div>
+				<div id = "Y">
+					<p>Input coordinate Y:</p>
+					<p><input type = "text" name = "Ycor"></p>
+				</div>
+				<div id = "R">
+					<p>Input radius R:</p>
+					<p><input type = "text" name = "Rrad"></p>
+				</div>
+				<div id = "Submit">
+					<p><input type="submit" value="Submit"></p>
+				</div>
 			</form>
 		</div>
 		
 		<div class = "coorplate">
 			<img src="./pics/areas.png" margin = 15px>
-		</div>
-
-		<div class = "IOtable">
-			<table>
-				<tr>
-					<td></td>
-					<td></td>
-				</tr>
-				<tr>
-					<td></td>
-					<td></td>
-				</tr>
-				<tr>
-					<td></td>
-					<td></td>
-				</tr>
-				<tr>
-					<td></td>
-					<td></td>
-				</tr>
-			</table>
 		</div>
 	</div>
 </body>
