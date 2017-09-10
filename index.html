@@ -15,12 +15,32 @@ http://www.w3.org/TR/html4/strict.dtd>
 			text-align: justify;
 		}
 
-		DIV[class = "coorplate"] {
+		div[class = "coorplate"] {
 			display: inline-block;
 		}
 
 		#input {
 			display: inline-block;
+		}
+
+		.InputLogic {
+			color: red;
+			margin-left: 60px;
+		}
+		.InputLogic {
+			color: black;
+		}
+
+		div {
+			color: grey;
+		}
+
+		.InputLogic div {
+			color: black;
+		}
+
+		DIV:first-child{
+			color: darkslategrey;
 		}
 	</style>
 </head>
@@ -28,7 +48,7 @@ http://www.w3.org/TR/html4/strict.dtd>
 	<div class = "header">
 		<img src="./gifs/cats_01.gif" align=left hspace = 0>
 		<img src="./gifs/cats_04.gif" align=right hspace = 0>
-		<h2 align="center"> gr.P3211 var.305</h2>
+		<h2 align = "center"> gr.P3211 var.305</h2>
 		<h2 align = "center"> Made by Roman Efremov & Danil Sinitskiy </h2>
 		<hr/>
 	</div>
@@ -39,39 +59,17 @@ http://www.w3.org/TR/html4/strict.dtd>
 				<div id = "X">
 					<p>Input coordinate X:</p>
 					<p><input type = "text" id = "Xcor" name = "Xcor"></p>
-					<script>
-						function validator(){
-                                                var s = this.value;
-						var sf = false;
-							for (var i = 0; i < s.length; i++) {
-                                if (s[i] == '-') {
-                                    if (sf) {
-                                        s = s.substring(0, i);
-                                        break;
-                                    }
-                                    else {
-                                        sf = true;
-                                    }
-                                }
-                                if (s[i] < '0' || s[i] > '9') {
-                                    s = s.substring(0, i);
-                                    break;
-                                }
-                            }
-                            document.getElementById(this.id).value = s;
-							return s;
-						}
-
-						Xcor.addEventListener("keyup", validator);
-					</script>
+					<script src = "validator.js"></script>
 				</div>
 				<div id = "Y">
 					<p>Input coordinate Y:</p>
-					<p><input type = "text" name = "Ycor"></p>
+					<p><input type = "text" id = "Ycor" name = "Ycor"></p>
+					<script src = "validator.js"></script>
 				</div>
 				<div id = "R">
 					<p>Input radius R:</p>
-					<p><input type = "text" name = "Rrad"></p>
+					<p><input type = "text" id = "Rrad" name = "Rrad"></p>
+					<script src = "validator.js"></script>
 				</div>
 				<div id = "Submit">
 					<p><input type="submit" value="Submit"></p>
