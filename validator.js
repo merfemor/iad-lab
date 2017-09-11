@@ -15,6 +15,9 @@ function validator(){
             s = s.substring(0, i);
             break;
         }
+	else {
+	    sf = true;
+	}
     }
     document.getElementById(this.id).value = s;
     return s;
