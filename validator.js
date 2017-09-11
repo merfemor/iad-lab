@@ -19,7 +19,15 @@ function validator(){
 	    sf = true;
 	}
     }
-    document.getElementById(this.id).value = s;
+    if (Number(s) < -5){
+        document.getElementById(this.id).value = "-5";
+    }
+    else if (Number(s) > 3) {
+        document.getElementById(this.id).value = "3";
+    }
+    else {
+        document.getElementById(this.id).value = s;
+    }
     return s;
 }
 
@@ -31,10 +39,17 @@ function radiusValidator() {
             break;
         }
     }
-    document.getElementById(this.id).value = s;
+    if (Number(s) < 2 && s != ""){
+        document.getElementById(this.id).value = "2";
+    }
+    else if (Number(s) > 5) {
+        document.getElementById(this.id).value = "5";
+    }
+    else {
+        document.getElementById(this.id).value = s;
+    }
     return s;
 }
 
-Xcor.addEventListener("keyup", validator);
 Ycor.addEventListener("keyup", validator);
 Rrad.addEventListener("keyup", radiusValidator);

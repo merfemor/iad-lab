@@ -58,20 +58,32 @@ http://www.w3.org/TR/html4/strict.dtd>
 			<form method = "POST" action = "get_result.php">
 				<div id = "X">
 					<p>Input coordinate X:</p>
-					<p><input type = "text" id = "Xcor" name = "Xcor" 
-						requied placeholder = "0"></p>
-					<script src = "validator.js"></script>
+					<p id = "Xcor" name = "Xcor">
+						<select requied placeholder = 0>
+							<option value="v-5">-5</option>
+							<option value="v-4">-4</option>
+							<option value="v-3">-3</option>
+							<option value="v-2">-2</option>
+							<option value="v-1">-1</option>
+							<option value="v0">0</option>
+							<option value="v1">1</option>
+							<option value="v2">2</option>
+							<option value="v3">3</option>
+							<option value="v4">4</option>
+							<option value="v5">5</option>
+						</select>
+					</p>
 				</div>
 				<div id = "Y">
 					<p>Input coordinate Y:</p>
 					<p><input type = "text" id = "Ycor" name = "Ycor"
-						requied placeholder = "0"></p>
+						requied placeholder = "0" min = "-5" max = "3"></p>
 					<script src = "validator.js"></script>
 				</div>
 				<div id = "R">
 					<p>Input radius R:</p>
 					<p><input type = "text" id = "Rrad" name = "Rrad"
-						requied placeholder = "0"></p>
+						requied placeholder = "2"></p>
 					<script src = "validator.js"></script>
 				</div>
 				<div id = "Submit">
