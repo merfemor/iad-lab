@@ -71,7 +71,7 @@ http://www.w3.org/TR/html4/strict.dtd>
 			<form method = "POST" action = "get_result.php">
 				<div id = "X">
 					<p>Input coordinate X:</p>
-					<p><select id = "Xcor" name = "Xcor"requied placeholder = 0>
+					<p><select id = "Xcor" name = "Xcor" placeholder = 0>
 						<option value="-5">-5</option>
 						<option value="-4">-4</option>
 						<option value="-3">-3</option>
@@ -88,18 +88,18 @@ http://www.w3.org/TR/html4/strict.dtd>
 				</div>
 				<div id = "Y">
 					<p>Input coordinate Y:</p>
-					<p><input type = "text" id = "Ycor" name = "Ycor"
-						requied placeholder = "0" min = "-5" max = "3" value=0></p>
+					<input type = "text" id = "Ycor" name = "Ycor"
+						placeholder = "0" value="0" required/>
 					<script src = "validator.js"></script>
 				</div>
 				<div id = "R">
 					<p>Input radius R:</p>
 					<p><input type = "text" id = "Rrad" name = "Rrad"
-						requied placeholder = "2" value=2></p>
+						placeholder = "2" value="2" required/></p>
 					<script src = "validator.js"></script>
 				</div>
 				<div id = "Submit">
-					<p><input type="submit" value="Submit"></p>
+					<p><input id="sub" name="sub" type="submit" value="Submit"></p>
 				</div>
 			</form>
 		</div>
