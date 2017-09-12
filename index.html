@@ -1,6 +1,6 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
 http://www.w3.org/TR/html4/strict.dtd>
-<html>
+<html xmlns:margin-bottom="http://www.w3.org/1999/xhtml" xmlns:bottom="http://www.w3.org/1999/xhtml">
 <head>
 	<meta charset = "utf-8">
 	<title>Lab_1</title>
@@ -42,6 +42,19 @@ http://www.w3.org/TR/html4/strict.dtd>
 		DIV:first-child{
 			color: darkslategrey;
 		}
+
+		.footer {
+			position: absolute;
+			bottom: 0px;
+			width: 95%;
+			left: 40px;
+		}
+
+		.Stallman {
+			width: 78px;
+			height: 68px;
+			float: left;
+		}
 	</style>
 </head>
 <body>
@@ -58,32 +71,31 @@ http://www.w3.org/TR/html4/strict.dtd>
 			<form method = "POST" action = "get_result.php">
 				<div id = "X">
 					<p>Input coordinate X:</p>
-					<p id = "Xcor" name = "Xcor">
-						<select requied placeholder = 0>
-							<option value="v-5">-5</option>
-							<option value="v-4">-4</option>
-							<option value="v-3">-3</option>
-							<option value="v-2">-2</option>
-							<option value="v-1">-1</option>
-							<option value="v0">0</option>
-							<option value="v1">1</option>
-							<option value="v2">2</option>
-							<option value="v3">3</option>
-							<option value="v4">4</option>
-							<option value="v5">5</option>
-						</select>
+					<p><select id = "Xcor" name = "Xcor"requied placeholder = 0>
+						<option value="-5">-5</option>
+						<option value="-4">-4</option>
+						<option value="-3">-3</option>
+						<option value="-2">-2</option>
+						<option value="-1">-1</option>
+						<option value="0">0</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+					</select>
 					</p>
 				</div>
 				<div id = "Y">
 					<p>Input coordinate Y:</p>
 					<p><input type = "text" id = "Ycor" name = "Ycor"
-						requied placeholder = "0" min = "-5" max = "3"></p>
+						requied placeholder = "0" min = "-5" max = "3" value=0></p>
 					<script src = "validator.js"></script>
 				</div>
 				<div id = "R">
 					<p>Input radius R:</p>
 					<p><input type = "text" id = "Rrad" name = "Rrad"
-						requied placeholder = "2"></p>
+						requied placeholder = "2" value=2></p>
 					<script src = "validator.js"></script>
 				</div>
 				<div id = "Submit">
@@ -94,6 +106,15 @@ http://www.w3.org/TR/html4/strict.dtd>
 		
 		<div class = "coorplate">
 			<img src="./pics/areas.png" margin = 15px>
+		</div>
+
+
+
+		<div class = "footer">
+			<hr/>
+			<img class = "Stallman" src="./pics/Stoll.png">
+			<p left = 15px>It's a full free project &#596&#8413</p>
+			<p><a href = "https://github.com/merfemor/iad-lab">https://github.com/merfemor/iad-lab</a></p>
 		</div>
 	</div>
 </body>
