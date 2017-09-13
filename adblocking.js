@@ -14,6 +14,7 @@ document.getElementById('turn-off-ads').onclick = function() {
 function hide_ads(alert_message = false) {
     document.getElementById("ad-unit-r").style.display = "none";
     document.getElementById("ad-unit-l").style.display = "none";
+    document.getElementById("right-footer").style.display="none";
     if(alert_message) {
         alert('Thanks for donating!')
     }
@@ -22,6 +23,7 @@ function hide_ads(alert_message = false) {
 function show_ads() {
 	document.getElementById("ad-unit-l").style.display="block";
 	document.getElementById("ad-unit-r").style.display="block";
+	document.getElementById("right-footer").style.display="inline-block";
 }
 
 var GET_INFO_URL = 'https://sheets.googleapis.com/v4/spreadsheets/1Hy3Nqjxm92540mfwli7DE3U2UBiP8NVrii7CUoa02xU/values/1!A2?key=AIzaSyD_Opt6qNmkiaFw_4NZvLrSr4n3WUZ8ryE';
