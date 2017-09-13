@@ -65,6 +65,7 @@
 </head>
 
 <body>
+
 <div class="header">
     <hr>
     <img src="./gifs/cats_01.gif" align=left hspace=0 class="head-cat">
@@ -100,8 +101,6 @@
     </div>
 
 
-
-
     <div class="InputLogic">
         <div id="input">
             <form method="POST" action="get_result.php">
@@ -123,27 +122,24 @@
                         </select>
                     </p>
                 </div>
-                <div id="Y">
-                    <p>Input coordinate Y:</p>
-                    <p>
-                        <input type="text" id="Ycor" name="Ycor" requied placeholder="0" min="-5" max="3" value=0>
-                    </p>
-                    <script src="validator.js"></script>
-                </div>
-                <div id="R">
-                    <p>Input radius R:</p>
-                    <p>
-                        <input type="text" id="Rrad" name="Rrad" requied placeholder="2" value=2>
-                    </p>
-                    <script src="validator.js"></script>
-                </div>
-                <div id="Submit">
-                    <p>
-                        <input type="submit" value="Submit">
-                    </p>
-                </div>
-            </form>
-        </div>
+                <div id = "Y">
+					<p>Input coordinate Y:</p>
+					<input type = "text" id = "Ycor" name = "Ycor"
+						placeholder = "0" value="0" required/>
+					<script src = "validator.js"></script>
+				</div>
+				<div id = "R">
+					<p>Input radius R:</p>
+					<p><input type = "text" id = "Rrad" name = "Rrad"
+						placeholder = "2" value="2" required/></p>
+					<script src = "validator.js"></script>
+				</div>
+				<div id = "Submit">
+					<p><input id="sub" name="sub" type="submit" value="Submit"></p>
+				</div>
+			</form>
+		</div>
+		
         <div class="coorplate">
             <img src="./pics/areas.png" margin=1 5px>
         </div>
@@ -201,8 +197,7 @@
     </div>
     <p left=1 5px>It's a full free project
 
-        <span style="
-				   -webkit-transform: scaleX(-1);
+        <span style="-webkit-transform: scaleX(-1);
 					  -moz-transform: scaleX(-1);
 						-o-transform: scaleX(-1);
 					-khtml-transform: scaleX(-1);
