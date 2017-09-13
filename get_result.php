@@ -11,24 +11,35 @@ $x = (float) $_POST['Xcor'];
 $y = (float) $_POST['Ycor'];
 $r = (float) $_POST['Rrad'];
 
-echo "Entered values:<br>
-<table>
-	<tr> <td>x</td> <td>$x</td> </tr>
-	<tr> <td>y</td> <td>$y</td> </tr>
-	<tr> <td>r</td> <td>$r</td> </tr>
-</table><br>";
-
-if(is_point_in_region($x, $y, $r)) {
-	echo "The point is in the region";
+if($x === null or $y === null or $r === null or
+	!in_array($x, array(-5, -4, -3, -2, -1, 0, 1, 2, 3)) or
+	$y > 3 or $y < -5 or
+	$r < 2 or $r > 5) {
+	echo '<img src="pics/wat.jpg"><br>';
+	echo '<b>Incorrect input!</b> <br>
+			x should be in {-5, -4, -3, -2, -1, 0, 1, 2, 3} <br>
+			y should be between -5 and 3 <br>
+			r should be between 2 and 5 <br>';
+	
 } else {
-	echo "The point isn't in the region";
-}
-echo "<br><br>";
+	echo "Entered values:<br>
+	<table>
+		<tr> <td>x</td> <td>$x</td> </tr>
+		<tr> <td>y</td> <td>$y</td> </tr>
+		<tr> <td>r</td> <td>$r</td> </tr>
+	</table><br>";
 
-echo "Current date and time: ", date('h:i a F d, Y'), "<br>";
+	if(is_point_in_region($x, $y, $r)) {
+		echo "The point is in the region";
+	} else {
+		echo "The point isn't in the region";
+	}
+	echo "<br>";
+}	
+	
+echo "<hr>Current date and time: ", date('h:i a F d, Y'), "<br>";
 $exec_time = microtime(true) - $start_time;
 echo sprintf("Script execution time: ~%.5f ms", $exec_time);
-
 
 function is_point_in_region($x, $y, $r) {
 	if(
