@@ -240,10 +240,12 @@
             <script src="adblocking.js" type="text/javascript"> </script>
             <script type="text/javascript">
                 window.onload = function () {
-                    if(is_donated() !== true) {
-                        document.getElementById("ad-unit-l").style.display="block";
-                        document.getElementById("ad-unit-r").style.display="block";
-                    }
+					is_donated(function(status) {
+						console.log("onload status: " + status);
+						if(status !== true) {
+							show_ads();
+						}
+					});
                 };
             </script>
             <!-- TODO: Store donation status in cookies or check is_donated() on start
