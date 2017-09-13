@@ -2,8 +2,8 @@ document.getElementById('turn-off-ads').onclick = function() {
     var status = is_donated();
 	if(status === true) {
 	    alert('Thanks for donating!');
-		document.getElementById("ad-unit-r").style.visibility = 'hidden';
-		document.getElementById("ad-unit-l").style.visibility = 'hidden';
+		document.getElementById("ad-unit-r").style.display = "none";
+		document.getElementById("ad-unit-l").style.display = "none";
 	} else if (status === false) {
 		alert('You have no power here.\nDonate, pls\n');
 	}
