@@ -8,6 +8,8 @@
     <style type="text/css">
         .header, .footer {
             background: lightcyan;
+            border-top: 1px solid;
+            border-bottom: 1px solid;
         }
         .head-cat {
             height: 14%;
@@ -49,17 +51,32 @@
             height: auto;
             width: 80%;
         }
-        A:hover {
+        A[href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"]:hover {
             font-size: 115%;
             color: red;
         }
+        #left-footer {
+            float: left;
+            width: 50%;
+        }
+
         .Stallman {
-            width: 78px;
-            height: auto;
+            width: auto;
+            height: 78px;
             float: left;
         }
-        .disable-ads-button-div {
-            float: right;
+        #no-adblock-img{
+            width: auto;
+            height: 78px;
+            float: left;
+        }
+
+        #right-footer {
+            display: inline-block;
+            width: 50%;
+        }
+        #right-footer P {
+            padding-left: 10px;
         }
 
     </style>
@@ -67,18 +84,18 @@
 
 <body>
 
+<a name="begin"></a>
+
 <div class="header">
-    <hr>
     <img src="./gifs/cats_01.gif" align=left hspace=0 class="head-cat">
     <img src="./gifs/cats_04.gif" align=right hspace=0 class="head-cat">
     <h2 align="center"> gr.P3211 var.305</h2>
     <h2 align="center"> Made by Roman Efremov & Danil Sinitskiy </h2>
-    <hr/>
 </div>
 
 
-<div class="layout" >
 
+<div class="layout" >
     <div id="ad-unit-l" class="ad-unit">
         <table>
             <tr>
@@ -183,19 +200,9 @@
 </div>
 
 <div class="footer">
-    <hr>
+    <div id="left-footer">
     <img class="Stallman" src="./pics/Stoll.png">
-    <div class="disable-ads-button-div">
-        <button id="turn-off-ads">Disable ads</button>
 
-        <script src="adblocking.js">
-
-        </script>
-        <!-- TODO: Store donation status in cookies or check is_donated() on start
-             TODO: Make animation when downloading information about donate
-             TODO: Replace alert's with smth non-blocking -->
-
-    </div>
     <p left=1 5px>It's a full free project
 
         <span style="-webkit-transform: scaleX(-1);
@@ -208,10 +215,30 @@
 				">
 					&copy;
 				</span>
+        <br>
+    <a href="https://github.com/merfemor/iad-lab">https://github.com/merfemor/iad-lab</a>
+        <br>
+        You can help developers by
+        <a href="https://docs.google.com/spreadsheets/d/12L0BR27avnnyiePcc0Af_1zE-U9VVqdj8YMRvxmbJAM/edit#gid=445358099">donating balls</a>
+        in cells <b>K9</b> and <b>L9</b> <br>
     </p>
-    <p><a href="https://github.com/merfemor/iad-lab">https://github.com/merfemor/iad-lab</a>
-    </p>
-    <hr>
+    </div>
+    <div id="right-footer">
+        <img id="no-adblock-img" src="pics/noadblock.png"/>
+        <p>
+            Please turn off your Adblock, we <ins>earn balls </ins> on advertising. <br>
+            If you are already donated, you can
+            <a id="turn-off-ads" href="#begin"> <ins>turn off advertising <ins/> </a> .
+            <script src="adblocking.js">
+
+            </script>
+            <!-- TODO: Store donation status in cookies or check is_donated() on start
+                 TODO: Make animation when downloading information about donate
+                 TODO: Replace alert's with smth non-blocking -->
+
+        </p>
+
+    </div>
 </div>
 
 </body>
