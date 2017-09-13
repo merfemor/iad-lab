@@ -102,7 +102,7 @@
 
 
 <div class="layout" >
-    <div id="ad-unit-l" class="ad-unit">
+    <div id="ad-unit-l" class="ad-unit" style="display: none">
         <table width = 165px>
             <tr align = "center">
                 <td>
@@ -170,7 +170,7 @@
     </div>
 
 
-    <div id="ad-unit-r" class="ad-unit">
+    <div id="ad-unit-r" class="ad-unit" style="display: none">
         <table align = "center">
             <col width=165px>
             <tr align = "center" valign="top">
@@ -237,8 +237,14 @@
             Please turn off your Adblock, we <ins>earn scores</ins> on advertising. <br>
             If you have already donated, you can
             <a id="turn-off-ads" href="#begin"> <ins>turn off advertising <ins/> </a> .
-            <script src="adblocking.js">
-
+            <script src="adblocking.js" type="text/javascript"> </script>
+            <script type="text/javascript">
+                window.onload = function () {
+                    if(is_donated() !== true) {
+                        document.getElementById("ad-unit-l").style.display="block";
+                        document.getElementById("ad-unit-r").style.display="block";
+                    }
+                };
             </script>
             <!-- TODO: Store donation status in cookies or check is_donated() on start
                  TODO: Make animation when downloading information about donate
