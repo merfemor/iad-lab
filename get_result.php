@@ -2,10 +2,6 @@
 
 $start_time = microtime(true);
 
-// enable errors printing
-// comment this on release
-ini_set('display_errors', 1);
-error_reporting(E_ALL);
 
 $x = (float) $_POST['Xcor'];
 $y = (float) $_POST['Ycor'];
