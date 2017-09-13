@@ -1,128 +1,207 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
-http://www.w3.org/TR/html4/strict.dtd>
+        http://www.w3.org/TR/html4/strict.dtd>
 <html xmlns:margin-bottom="http://www.w3.org/1999/xhtml" xmlns:bottom="http://www.w3.org/1999/xhtml">
+
 <head>
-	<meta charset = "utf-8">
-	<title>Lab_1</title>
-	<style type = "text/css">
-		h2 {
-			color: grey;
-			font-size: 150%;
-			font-family: "Garamond", monospace;
-		}
+    <meta charset="utf-8">
+    <title>Lab_1</title>
+    <style type="text/css">
+        .header, .footer {
+            background: lightcyan;
+        }
+        .head-cat {
+            height: 14%;
+        }
+        h2 {
+            color: grey;
+            font-size: 150%;
+            font-family: "Garamond", monospace;
+        }
+        .layout {
+            overflow: hidden;
+        }
+        .layout DIV{
+            float: left;
+        }
+        .InputLogic DIV {
+            float: none;
+            display: inline-block;
+        }
+        .InputLogic {
+            padding-left: 40px;
+            width: auto;
+        }
 
-		.InputLogic{
-			text-align: justify;
-		}
+        #input DIV{
+            display: block;
+        }
 
-		div[class = "coorplate"] {
-			display: inline-block;
-		}
+        #ad-unit-l {
+            width: auto;
+            max-width: 20%;
+        }
+        #ad-unit-r {
+            float: right;
+            max-width: 40%;
+        }
+        IMG[class="ad-img"] {
+            width: auto;
+            height: 35%;
+        }
+        A:hover {
+            font-size: 115%;
+            color: red;
+        }
+        .Stallman {
+            width: 78px;
+            height: auto;
+            float: left;
+        }
+        .disable-ads-button-div {
+            float: right;
+        }
 
-		#input {
-			display: inline-block;
-		}
-
-		.InputLogic {
-			color: red;
-			margin-left: 60px;
-		}
-		.InputLogic {
-			color: black;
-		}
-
-		div {
-			color: grey;
-		}
-
-		.InputLogic div {
-			color: black;
-		}
-
-		DIV:first-child{
-			color: darkslategrey;
-		}
-
-		.footer {
-			position: absolute;
-			bottom: 0px;
-			width: 95%;
-			left: 40px;
-		}
-
-		.Stallman {
-			width: 78px;
-			height: 68px;
-			float: left;
-		}
-	</style>
+    </style>
 </head>
+
 <body>
-	<div class = "header">
-		<img src="./gifs/cats_01.gif" align=left hspace = 0>
-		<img src="./gifs/cats_04.gif" align=right hspace = 0>
-		<h2 align = "center"> gr.P3211 var.305</h2>
-		<h2 align = "center"> Made by Roman Efremov & Danil Sinitskiy </h2>
-		<hr/>
-	</div>
-
-	<div class = "InputLogic">
-		<div id = "input">
-			<form method = "POST" action = "get_result.php">
-				<div id = "X">
-					<p>Input coordinate X:</p>
-					<p><select id = "Xcor" name = "Xcor"requied placeholder = 0>
-						<option value="-5">-5</option>
-						<option value="-4">-4</option>
-						<option value="-3">-3</option>
-						<option value="-2">-2</option>
-						<option value="-1">-1</option>
-						<option value="0">0</option>
-						<option value="1">1</option>
-						<option value="2">2</option>
-						<option value="3">3</option>
-						<option value="4">4</option>
-						<option value="5">5</option>
-					</select>
-					</p>
-				</div>
-				<div id = "Y">
-					<p>Input coordinate Y:</p>
-					<p><input type = "text" id = "Ycor" name = "Ycor"
-						requied placeholder = "0" min = "-5" max = "3" value=0></p>
-					<script src = "validator.js"></script>
-				</div>
-				<div id = "R">
-					<p>Input radius R:</p>
-					<p><input type = "text" id = "Rrad" name = "Rrad"
-						requied placeholder = "2" value=2></p>
-					<script src = "validator.js"></script>
-				</div>
-				<div id = "Submit">
-					<p><input type="submit" value="Submit"></p>
-				</div>
-			</form>
-		</div>
-		
-		<div class = "coorplate">
-			<img src="./pics/areas.png" margin = 15px>
-		</div>
+<div class="header">
+    <hr>
+    <img src="./gifs/cats_01.gif" align=left hspace=0 class="head-cat">
+    <img src="./gifs/cats_04.gif" align=right hspace=0 class="head-cat">
+    <h2 align="center"> gr.P3211 var.305</h2>
+    <h2 align="center"> Made by Roman Efremov & Danil Sinitskiy </h2>
+    <hr/>
+</div>
 
 
-		<div id="ad-unit">
-			<!-- ads here -->
-			<button id="turn-off-ads">Disable ads</button>
-			<script src="adblocking.js"> </script>
-			<!-- TODO: Store donation status in cookies or check is_donated() on start
-				 TODO: Make animation when downloading information about donate
-				 TODO: Replace alert's with smth non-blocking -->
-		</div>
+<div class="layout" >
 
-		<div class = "footer">
-			<hr/>
-			<img class = "Stallman" src="./pics/Stoll.png">
-			<p left = 15px>It's a full free project 
-				<span style="
+    <div id="ad-unit-l" class="ad-unit">
+        <table>
+            <tr>
+                <td>
+                    <img src="gifs/ads/ad1.gif" class="ad-img">
+                    <br>
+                    <a class="ad-link" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
+                        Борода будет расти как на дрожжах, если пользоваться этим средством. Всего 66,6 рублей...</a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p class="ad-paragraph">
+                        <img src="gifs/ads/ad2.gif" class="ad-img">
+                        <br>
+                        <a class="ad-link" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
+                            Борода будет расти как на дрожжах, если пользоваться этим средством. Всего 66,6 рублей...</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+
+
+
+    <div class="InputLogic">
+        <div id="input">
+            <form method="POST" action="get_result.php">
+                <div id="X">
+                    <p>Input coordinate X:</p>
+                    <p>
+                        <select id="Xcor" name="Xcor" requied placeholder=0>
+                            <option value="-5">-5</option>
+                            <option value="-4">-4</option>
+                            <option value="-3">-3</option>
+                            <option value="-2">-2</option>
+                            <option value="-1">-1</option>
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </p>
+                </div>
+                <div id="Y">
+                    <p>Input coordinate Y:</p>
+                    <p>
+                        <input type="text" id="Ycor" name="Ycor" requied placeholder="0" min="-5" max="3" value=0>
+                    </p>
+                    <script src="validator.js"></script>
+                </div>
+                <div id="R">
+                    <p>Input radius R:</p>
+                    <p>
+                        <input type="text" id="Rrad" name="Rrad" requied placeholder="2" value=2>
+                    </p>
+                    <script src="validator.js"></script>
+                </div>
+                <div id="Submit">
+                    <p>
+                        <input type="submit" value="Submit">
+                    </p>
+                </div>
+            </form>
+        </div>
+        <div class="coorplate">
+            <img src="./pics/areas.png" margin=1 5px>
+        </div>
+    </div>
+
+
+    <div id="ad-unit-r" class="ad-unit">
+        <table>
+            <tr>
+                <td>
+                    <img src="gifs/ads/ad4.gif" class="ad-img">
+                    <br>
+                    <a class="ad-link" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
+                        Борода будет расти как на дрожжах, если пользоваться этим средством. Всего 66,6 рублей...</a>
+                </td>
+
+                <td>
+                    <img src="gifs/ads/ad5.gif" class="ad-img">
+                    <br>
+                    <a class="ad-link" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
+                        Борода будет расти как на дрожжах, если пользоваться этим средством. Всего 66,6 рублей...</a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <img src="gifs/ads/ad6.gif" class="ad-img">
+                    <br>
+                    <a class="ad-link" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
+                        Борода будет расти как на дрожжах, если пользоваться этим средством. Всего 66,6 рублей...</a>
+                </td>
+                <td>
+                    <img src="gifs/ads/ad3.gif" class="ad-img">
+                    <br>
+                    <a class="ad-link" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
+                        Борода будет расти как на дрожжах, если пользоваться этим средством. Всего 66,6 рублей...</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<div class="footer">
+    <hr>
+    <img class="Stallman" src="./pics/Stoll.png">
+    <div class="disable-ads-button-div">
+        <button id="turn-off-ads">Disable ads</button>
+
+        <script src="adblocking.js">
+
+        </script>
+        <!-- TODO: Store donation status in cookies or check is_donated() on start
+             TODO: Make animation when downloading information about donate
+             TODO: Replace alert's with smth non-blocking -->
+
+    </div>
+    <p left=1 5px>It's a full free project
+
+        <span style="
 				   -webkit-transform: scaleX(-1);
 					  -moz-transform: scaleX(-1);
 						-o-transform: scaleX(-1);
@@ -133,9 +212,12 @@ http://www.w3.org/TR/html4/strict.dtd>
 				">
 					&copy;
 				</span>
-			</p>
-			<p><a href = "https://github.com/merfemor/iad-lab">https://github.com/merfemor/iad-lab</a></p>
-		</div>
-	</div>
+    </p>
+    <p><a href="https://github.com/merfemor/iad-lab">https://github.com/merfemor/iad-lab</a>
+    </p>
+    <hr>
+</div>
+
 </body>
+
 </html>
