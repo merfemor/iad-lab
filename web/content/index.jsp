@@ -129,8 +129,6 @@
                     <p>Input coordinate X:</p>
                     <p>
                         <select id="Xcor" name="Xcor" requied placeholder=0>
-                            <option value="-5">-5</option>
-                            <option value="-4">-4</option>
                             <option value="-3">-3</option>
                             <option value="-2">-2</option>
                             <option value="-1">-1</option>
@@ -151,9 +149,15 @@
 				</div>
 				<div id = "R">
 					<p>Input radius R:</p>
-					<p><input type = "text" id = "Rrad" name = "Rrad"
-						placeholder = "2" value="2" required/></p>
-					<script src = "validator.js"></script>
+					<p>
+                        <fieldset id = "Rrad" name = "Rrad" vertical-align = center>
+                            <input type = "button" id = "Rrad1" name = "Rrad1" value="1"/>
+                            <input type = "button" id = "Rrad1.5" name = "Rrad1.5" value="1.5"/>
+                            <input type = "button" id = "Rrad2" name = "Rrad2" value="2"/>
+                            <input type = "button" id = "Rrad2.5" name = "Rrad1" value="2.5"/>
+                            <input type = "button" id = "Rrad3" name = "Rrad3" value="3"/>
+                        </fieldset>
+                    </p>
 				</div>
 				<div id = "Submit">
 					<p><input id="sub" name="sub" type="submit" value="Submit"></p>

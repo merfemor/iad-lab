@@ -8,4 +8,7 @@
         <servlet-name>controller</servlet-name>
         <url-pattern>/*</url-pattern>
     </servlet-mapping>
+    <jsp-config>
+	<property name = "point_shooting" value = "JSP for figure and points"/>
+    </jsp-config>
 </web-app>
