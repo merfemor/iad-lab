@@ -54,7 +54,7 @@ public class AreaCheckServlet extends HttpServlet {
             out.print("red\"><b>false</b>");
         }
         out.println("</font><br>");
-        out.println("<a href='/'>Return to main page</a>");
+        out.println("<a href='" + req.getContextPath() + "'>Return to main page</a>");
         out.println("</body>\n</html>");
     }
 }

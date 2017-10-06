@@ -1,14 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns="http://java.sun.com/xml/ns/javaee" version="2.5">
     <servlet>
-        <servlet-name>controller</servlet-name>
+        <servlet-name>ControllerServlet</servlet-name>
         <servlet-class>ControllerServlet</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>controller</servlet-name>
-        <url-pattern>/*</url-pattern>
+        <servlet-name>ControllerServlet</servlet-name>
+        <url-pattern>/controller</url-pattern>
     </servlet-mapping>
-    <jsp-config>
-	<property name = "point_shooting" value = "JSP for figure and points"/>
-    </jsp-config>
+    <servlet>
+        <servlet-name>AreaCheckServlet</servlet-name>
+        <servlet-class>AreaCheckServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AreaCheckServlet</servlet-name>
+        <url-pattern>/check</url-pattern>
+    </servlet-mapping>
 </web-app>

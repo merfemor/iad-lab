@@ -1,8 +1,10 @@
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+
 
 public class ControllerServlet extends HttpServlet {
     @Override
@@ -12,10 +14,15 @@ public class ControllerServlet extends HttpServlet {
         String r = req.getParameter("Rrad");
 
         if (x == null || y == null || r == null || !isValidParameters(x, y, r) ) {
-            req.getRequestDispatcher("AreaCheckServlet").forward(req, resp);
+            req.getRequestDispatcher("/index.jsp").forward(req, resp);
         } else {
-            req.getRequestDispatcher("index.jsp").forward(req, resp);
+            req.getRequestDispatcher("/check").forward(req, resp);
         }
+    }
+
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        doPost(req, resp);
     }
 
     private static boolean isValidParameters(String xs, String ys, String rs) {
