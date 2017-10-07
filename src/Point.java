@@ -12,6 +12,8 @@ public class Point {
     }
 
     private boolean isInRegion() {
-        return false;
+        return x <= 0 && y >= 0 && x >= -radius && y <= radius ||
+                x >= 0 && y <= 0 && (x * x + y * y <= (radius / 2) * (radius / 2)) ||
+                x <= 0 && y <= 0 && (y >= -x - radius / 2);
     }
 }
