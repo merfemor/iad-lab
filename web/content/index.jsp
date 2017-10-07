@@ -1,8 +1,10 @@
-<%@page contentType="text/html" pageEncoding="UTF-8" %>
+<%@page contentType="text/html" pageEncoding="UTF-8" import="java.util.List, point.Point" %>
 <!DOCTYPE html>
 
 <html>
 <head>
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css"
+          integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
     <meta charset="utf-8">
     <title>IAD - lab</title>
     <style type="text/css">
@@ -26,12 +28,12 @@
             float: left;
         }
 
-        .InputLogic DIV {
+        #content DIV {
             float: none;
             display: inline-block;
         }
 
-        .InputLogic {
+        #content {
             padding-left: 40px;
             width: auto;
         }
@@ -139,53 +141,95 @@
         </table>
     </div>
 
-
-    <div class="InputLogic">
-        <div id="input">
-            <form method="POST" action="controller">
-                <div id="X">
-                    <p>Input coordinate X:</p>
-                    <p>
-                        <select id="Xcor" name="Xcor" requied placeholder=0>
-                            <option value="-3">-3</option>
-                            <option value="-2">-2</option>
-                            <option value="-1">-1</option>
-                            <option value="0">0</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                        </select>
-                    </p>
-                </div>
-                <div id="Y">
-                    <p>Input coordinate Y:</p>
-                    <input type="text" id="Ycor" name="Ycor"
-                           placeholder="0" value="0" required/>
-                    <script src="validator.js"></script>
-                </div>
-                <div id="R">
-                    <p>Input radius R:</p>
-                        <select onchange = "draw_a_plate(this.value)" id="Rrad" name="Rrad" requied placeholder=1>
+    <div id="content">
+        <div class="InputLogic">
+            <div id="input">
+                <form method="POST" action="controller">
+                    <div id="X">
+                        <p>Input coordinate X:</p>
+                        <p>
+                            <select id="Xcor" name="Xcor" requied placeholder=0>
+                                <option value="-3">-3</option>
+                                <option value="-2">-2</option>
+                                <option value="-1">-1</option>
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                        </p>
+                    </div>
+                    <div id="Y">
+                        <p>Input coordinate Y:</p>
+                        <input type="text" id="Ycor" name="Ycor"
+                               placeholder="0" value="0" required/>
+                        <script src="validator.js"></script>
+                    </div>
+                    <div id="R">
+                        <p>Input radius R:</p>
+                        <select onchange="draw_a_plate(this.value)" id="Rrad" name="Rrad" requied placeholder=1>
                             <option value="1">1</option>
                             <option value="1.5">1.5</option>
                             <option value="2">2</option>
                             <option value="2.5">2.5</option>
                             <option value="3">3</option>
                         </select>
-                    <script src = "canvas_drawing.js"></script>
-                </div>
-                <div id="Submit">
-                    <p><input id="sub" name="sub" type="submit" value="Submit"></p>
-                </div>
-            </form>
-        </div>
+                        <script src="canvas_drawing.js"></script>
+                    </div>
+                    <div id="Submit">
+                        <p><input id="sub" name="sub" type="submit" value="Submit"></p>
+                    </div>
+                </form>
+            </div>
 
-        <div class="coordinate_plate">
-            <canvas id="plate" width="400px" height="400px">
-                <script src="canvas_drawing.js"></script>
-            </canvas>
+            <div class="coordinate_plate">
+                <canvas id="plate" width="400px" height="400px">
+                    <script src="canvas_drawing.js"></script>
+                </canvas>
+            </div>
+        </div>
+        <%
+            List<Point> previousPoints = (List<Point>) application.getAttribute("previousPointList");
+            String styleForDiv = "";
+            if (previousPoints == null || previousPoints.size() == 0)
+                styleForDiv = "style=\"display: none\"";
+        %>
+        <div id="previous-results" <%=styleForDiv%> >
+            <h1>Previous results:</h1>
+            <table class="pure-table pure-table-bordered">
+                <thead>
+                <tr>
+                    <th>№</th>
+                    <th>x</th>
+                    <th>y</th>
+                    <th>R</th>
+                    <th>in area</th>
+                </tr>
+                </thead>
+                <tbody>
+                <%
+                    if (previousPoints != null) {
+                        int i = 1;
+                        for (Point p: previousPoints) {
+                            out.print("<tr>\n" +
+                                    "<th>" + i + "</th>\n" +
+                                    "<th>" + p.x + "</th>\n" +
+                                    "<th>" + p.y + "</th>\n" +
+                                    "<th>" + p.radius + "</th>\n" +
+                                    "<th>");
+                            if (p.isInRegion)
+                                out.println("<font color=\"green\">yes</font>");
+                            else
+                                out.println("<font color=\"red\">no</font>");
+                            out.println("</tr>");
+                            i++;
+                        }
+                    }
+                %>
+                </tbody>
+            </table>
         </div>
     </div>
 
@@ -259,9 +303,8 @@
             on advertising. <br>
             If you have already donated, you can
             <a id="turn-off-ads" href="#begin">
-                <ins>turn off advertising
-                    <ins/>
-            </a> .
+                <ins>turn off advertising</ins>
+            </a>.
             <script src="adblocking.js" type="text/javascript"></script>
             <script type="text/javascript">
                 window.onload = function () {
