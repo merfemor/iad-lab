@@ -1,5 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" http://www.w3.org/TR/html4/strict.dtd>
+<!DOCTYPE html>
 
 <html>
 <head>
@@ -184,8 +184,8 @@
         </div>
 
         <div class="coordinate_plate">
-            <canvas id="plate" width = "400px" height = "400px">
-                <script src = "canvas_drawing.js"/>
+            <canvas id="plate" width="400px" height="400px">
+                <script src="canvas_drawing.js"></script>
             </canvas>
         </div>
     </div>
@@ -249,7 +249,7 @@
             <br>
             You can help developers by
             <a href="https://docs.google.com/spreadsheets/d/12L0BR27avnnyiePcc0Af_1zE-U9VVqdj8YMRvxmbJAM/edit#gid=445358099">donating</a>
-            in cells <b>Q9</b> and <b>Q 19</b> <br>
+            in cells <b>Q9</b> and <b>Q19</b> <br>
         </p>
     </div>
     <div id="right-footer" style="display: none">
