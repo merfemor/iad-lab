@@ -1,8 +1,9 @@
-<%@page contentType="text/html" pageEncoding="UTF-8" %>
-<!DOCTYPE html>
+<!--<%@page contentType="text/html" pageEncoding="UTF-8" %>-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" http://www.w3.org/TR/html4/strict.dtd>
 
 <html>
 <head>
+    <meta charset="utf-8">
     <title>IAD - lab</title>
     <style type="text/css">
         .header, .footer {
@@ -99,7 +100,6 @@
             margin-left: 20px;
             vertical-align: top;
             background-image: url(pics/plate.png);
-            horiz-align: right;
         }
     </style>
 </head>
@@ -184,7 +184,9 @@
         </div>
 
         <div class="coordinate_plate">
-            <canvas id="plate"/>
+            <canvas id="plate" width = "400px" height = "400px">
+                <script src = "canvas_drawing.js"/>
+            </canvas>
         </div>
     </div>
 
