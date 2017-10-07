@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Lab_1</title>
+    <title>IAD - lab</title>
     <style type="text/css">
         .header, .footer {
             background: lightcyan;
@@ -102,7 +102,7 @@
 <div class="header">
     <img src="./gifs/cats_01.gif" align=left hspace=0 class="head-cat">
     <img src="./gifs/cats_04.gif" align=right hspace=0 class="head-cat">
-    <h2 align="center"> gr.P3211 var.305</h2>
+    <h2 align="center"> gr.P3211 var.355</h2>
     <h2 align="center"> Made by Roman Efremov & Danil Sinitskiy </h2>
 </div>
 
@@ -134,7 +134,7 @@
 
     <div class="InputLogic">
         <div id="input">
-            <form method="POST" action="get_result.php">
+            <form method="POST" action="controller">
                 <div id="X">
                     <p>Input coordinate X:</p>
                     <p>
@@ -239,7 +239,7 @@
         <br>
         You can help developers by
         <a href="https://docs.google.com/spreadsheets/d/12L0BR27avnnyiePcc0Af_1zE-U9VVqdj8YMRvxmbJAM/edit#gid=445358099">donating</a>
-        in cells <b>L9</b> and <b>L19</b> <br>
+        in cells <b>Q9</b> and <b>Q	19</b> <br>
     </p>
     </div>
     <div id="right-footer" style="display: none">
@@ -259,10 +259,6 @@
 					});
                 };
             </script>
-            <!-- TODO: Store donation status in cookies or check is_donated() on start
-                 TODO: Make animation when downloading information about donate
-                 TODO: Replace alert's with smth non-blocking -->
-
         </p>
 
     </div>
