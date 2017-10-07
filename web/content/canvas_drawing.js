@@ -1,18 +1,30 @@
-var canvas = document.getElementById("plate");
-var ctx = canvas.getContext("2d");
-var pi = Math.PI;
+var R = 3;
 
-ctx.fillStyle = "rgba(51, 123, 225, 0.8)"
-ctx.fillRect(50, 50, 150, 150);
+function draw_a_plate(val) {
+    var canvas = document.getElementById("plate");
+    var ctx = canvas.getContext("2d");
+    var pi = Math.PI;
 
-ctx.strokeStyle = "rgba(51, 123, 225, 0.8)"
-ctx.beginPath();
-ctx.moveTo(125, 200);
-ctx.lineTo(200, 275);
-ctx.lineTo(200, 200);
-ctx.lineTo(125, 200);
-ctx.fill();
+    var R = val;
+    ctx.clearRect(0, 0, 400, 400);
+    ctx.fillStyle = "rgba(51, 123, 225, 0.8)"
+    //square
+    var xy = 200 - 50 * R;
+    ctx.fillRect(xy, xy, 50 * R, 50 * R);
 
-ctx.arc(200, 200, 75, 0, pi/2, false);
-ctx.stroke();
-ctx.fill();
+    //triangle
+    ctx.strokeStyle = "rgba(51, 123, 225, 0.8)"
+    ctx.beginPath();
+    ctx.moveTo(200 - 25 * R, 200);
+    ctx.lineTo(200, 200 + 25 * R);
+    ctx.lineTo(200, 200);
+    ctx.lineTo(200 - 25 * R, 200);
+    ctx.fill();
+
+    //circle
+    ctx.arc(200, 200, 25 * R, 0, pi/2, false);
+    ctx.stroke();
+    ctx.fill();
+}
+
+Rrad.addEventListener("onchange", draw_a_plate)

@@ -167,15 +167,14 @@
                 </div>
                 <div id="R">
                     <p>Input radius R:</p>
-                    <p>
-                        <select id="Rrad" name="Rrad" requied placeholder=1>
+                        <select onchange = "draw_a_plate(this.value)" id="Rrad" name="Rrad" requied placeholder=1>
                             <option value="1">1</option>
                             <option value="1.5">1.5</option>
                             <option value="2">2</option>
                             <option value="2.5">2.5</option>
                             <option value="3">3</option>
                         </select>
-                    </p>
+                    <script src = "canvas_drawing.js"></script>
                 </div>
                 <div id="Submit">
                     <p><input id="sub" name="sub" type="submit" value="Submit"></p>
