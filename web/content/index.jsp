@@ -1,9 +1,8 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
-        http://www.w3.org/TR/html4/strict.dtd>
-<html xmlns:margin-bottom="http://www.w3.org/1999/xhtml" xmlns:bottom="http://www.w3.org/1999/xhtml">
+<%@page contentType="text/html" pageEncoding="UTF-8" %>
+<!DOCTYPE html>
 
+<html>
 <head>
-    <meta charset="utf-8">
     <title>IAD - lab</title>
     <style type="text/css">
         .header, .footer {
@@ -11,27 +10,32 @@
             border-top: 1px solid;
             border-bottom: 1px solid;
         }
+
         h2 {
             color: grey;
             font-size: 150%;
             font-family: "Garamond", monospace;
         }
+
         .layout {
             overflow: hidden;
         }
-        .layout DIV{
+
+        .layout DIV {
             float: left;
         }
+
         .InputLogic DIV {
             float: none;
             display: inline-block;
         }
+
         .InputLogic {
             padding-left: 40px;
             width: auto;
         }
 
-        #input DIV{
+        #input DIV {
             display: block;
         }
 
@@ -39,6 +43,7 @@
             width: auto;
             max-width: 20%;
         }
+
         #ad-unit-r {
             float: right;
             max-width: 40%;
@@ -48,10 +53,12 @@
             height: auto;
             width: 80%;
         }
+
         A[href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"]:hover {
             font-size: 115%;
             color: red;
         }
+
         #left-footer {
             float: left;
             width: 50%;
@@ -62,7 +69,8 @@
             height: 78px;
             float: left;
         }
-        #no-adblock-img{
+
+        #no-adblock-img {
             width: auto;
             height: 78px;
             float: left;
@@ -72,6 +80,7 @@
             display: inline-block;
             width: 50%;
         }
+
         #right-footer P {
             padding-left: 10px;
         }
@@ -107,11 +116,10 @@
 </div>
 
 
-
-<div class="layout" >
+<div class="layout">
     <div id="ad-unit-l" class="ad-unit" style="display: none">
-        <table width = 165px>
-            <tr align = "center">
+        <table width=165px>
+            <tr align="center">
                 <td>
                     <img src="gifs/rek/ad1.gif" class="ad-img">
                     <br>
@@ -119,7 +127,7 @@
                         Борода будет расти как на дрожжах, если пользоваться этим средством. Всего 66,6 рублей...</a>
                 </td>
             </tr>
-            <tr align = "center">
+            <tr align="center">
                 <td>
                     <p class="ad-paragraph">
                         <img src="gifs/rek/ad2.gif" class="ad-img">
@@ -151,13 +159,13 @@
                         </select>
                     </p>
                 </div>
-                <div id = "Y">
-					<p>Input coordinate Y:</p>
-					<input type = "text" id = "Ycor" name = "Ycor"
-						placeholder = "0" value="0" required/>
-					<script src = "validator.js"></script>
-				</div>
-                <div id = "R">
+                <div id="Y">
+                    <p>Input coordinate Y:</p>
+                    <input type="text" id="Ycor" name="Ycor"
+                           placeholder="0" value="0" required/>
+                    <script src="validator.js"></script>
+                </div>
+                <div id="R">
                     <p>Input radius R:</p>
                     <p>
                         <select id="Rrad" name="Rrad" requied placeholder=1>
@@ -169,22 +177,22 @@
                         </select>
                     </p>
                 </div>
-				<div id = "Submit">
-					<p><input id="sub" name="sub" type="submit" value="Submit"></p>
-				</div>
-			</form>
-		</div>
+                <div id="Submit">
+                    <p><input id="sub" name="sub" type="submit" value="Submit"></p>
+                </div>
+            </form>
+        </div>
 
-        <div class = "coordinate_plate">
-            <canvas id = "plate"/>
+        <div class="coordinate_plate">
+            <canvas id="plate"/>
         </div>
     </div>
 
 
     <div id="ad-unit-r" class="ad-unit" style="display: none">
-        <table align = "center">
+        <table align="center">
             <col width=165px>
-            <tr align = "center" valign="top">
+            <tr align="center" valign="top">
                 <td>
                     <img src="gifs/rek/ad4.gif" class="ad-img">
                     <br>
@@ -200,7 +208,7 @@
                 </td>
             </tr>
             <col width="165px">
-            <tr align = "center">
+            <tr align="center">
                 <td>
                     <img src="gifs/rek/ad6.gif" class="ad-img">
                     <br>
@@ -220,11 +228,11 @@
 
 <div class="footer">
     <div id="left-footer">
-    <img class="Stallman" src="./pics/Stoll.png">
+        <img class="Stallman" src="./pics/Stoll.png">
 
-    <p left=1 5px>It's a full free project
+        <p left=1 5px>It's a full free project
 
-        <span style="-webkit-transform: scaleX(-1);
+            <span style="-webkit-transform: scaleX(-1);
 					  -moz-transform: scaleX(-1);
 						-o-transform: scaleX(-1);
 					-khtml-transform: scaleX(-1);
@@ -234,29 +242,34 @@
 				">
 					&copy;
 				</span>
-        <br>
-    <a href="https://github.com/merfemor/iad-lab">https://github.com/merfemor/iad-lab</a>
-        <br>
-        You can help developers by
-        <a href="https://docs.google.com/spreadsheets/d/12L0BR27avnnyiePcc0Af_1zE-U9VVqdj8YMRvxmbJAM/edit#gid=445358099">donating</a>
-        in cells <b>Q9</b> and <b>Q	19</b> <br>
-    </p>
+            <br>
+            <a href="https://github.com/merfemor/iad-lab">https://github.com/merfemor/iad-lab</a>
+            <br>
+            You can help developers by
+            <a href="https://docs.google.com/spreadsheets/d/12L0BR27avnnyiePcc0Af_1zE-U9VVqdj8YMRvxmbJAM/edit#gid=445358099">donating</a>
+            in cells <b>Q9</b> and <b>Q 19</b> <br>
+        </p>
     </div>
     <div id="right-footer" style="display: none">
         <img id="no-adblock-img" src="pics/noadblock.png"/>
         <p>
-            Please turn off your Adblock, we <ins>earn scores</ins> on advertising. <br>
+            Please turn off your Adblock, we
+            <ins>earn scores</ins>
+            on advertising. <br>
             If you have already donated, you can
-            <a id="turn-off-ads" href="#begin"> <ins>turn off advertising <ins/> </a> .
-            <script src="adblocking.js" type="text/javascript"> </script>
+            <a id="turn-off-ads" href="#begin">
+                <ins>turn off advertising
+                    <ins/>
+            </a> .
+            <script src="adblocking.js" type="text/javascript"></script>
             <script type="text/javascript">
                 window.onload = function () {
-					is_donated(function(status) {
-						console.log("onload status: " + status);
-						if(status !== true) {
-							show_ads();
-						}
-					});
+                    is_donated(function (status) {
+                        console.log("onload status: " + status);
+                        if (status !== true) {
+                            show_ads();
+                        }
+                    });
                 };
             </script>
         </p>
