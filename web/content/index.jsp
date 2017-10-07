@@ -82,6 +82,16 @@
             width: 99%;
         }
 
+        .coordinate_plate {
+            width: 400px;
+            height: 400px;
+            border: 1px solid black;
+            margin-top: 20px;
+            margin-left: 20px;
+            vertical-align: top;
+            background-image: url(pics/plate.png);
+            horiz-align: right;
+        }
     </style>
 </head>
 
@@ -147,26 +157,26 @@
 						placeholder = "0" value="0" required/>
 					<script src = "validator.js"></script>
 				</div>
-				<div id = "R">
-					<p>Input radius R:</p>
-					<p>
-                        <fieldset id = "Rrad" name = "Rrad" vertical-align = center>
-                            <input type = "button" id = "Rrad1" name = "Rrad1" value="1"/>
-                            <input type = "button" id = "Rrad1.5" name = "Rrad1.5" value="1.5"/>
-                            <input type = "button" id = "Rrad2" name = "Rrad2" value="2"/>
-                            <input type = "button" id = "Rrad2.5" name = "Rrad1" value="2.5"/>
-                            <input type = "button" id = "Rrad3" name = "Rrad3" value="3"/>
-                        </fieldset>
+                <div id = "R">
+                    <p>Input radius R:</p>
+                    <p>
+                        <select id="Rrad" name="Rrad" requied placeholder=1>
+                            <option value="1">1</option>
+                            <option value="1.5">1.5</option>
+                            <option value="2">2</option>
+                            <option value="2.5">2.5</option>
+                            <option value="3">3</option>
+                        </select>
                     </p>
-				</div>
+                </div>
 				<div id = "Submit">
 					<p><input id="sub" name="sub" type="submit" value="Submit"></p>
 				</div>
 			</form>
 		</div>
-		
-        <div class="coorplate">
-            <img src="./pics/areas.png" margin=1 5px>
+
+        <div class = "coordinate_plate">
+            <canvas id = "plate"/>
         </div>
     </div>
 

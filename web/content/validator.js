@@ -25,8 +25,8 @@ function validator(event){
     if (Number(s) < -5){
         document.getElementById(this.id).value = "-5";
     }
-    else if (Number(s) > 5) {
-        document.getElementById(this.id).value = "5";
+    else if (Number(s) > 3) {
+        document.getElementById(this.id).value = "3";
     }
     else {
         document.getElementById(this.id).value = s;
