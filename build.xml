@@ -9,9 +9,9 @@
 
     <target name="build" depends="init">
         <javac destdir="${build}">
-            <src path="${src}" />
+            <src path="${src}"/>
             <classpath path="lib">
-                <fileset dir="lib" />
+                <fileset dir="lib"/>
             </classpath>
         </javac>
     </target>
@@ -23,7 +23,14 @@
             <classes dir="${build}"/>
         </war>
     </target>
+
     <target name="clean">
         <delete dir="${build}"/>
+    </target>
+
+    <target name="to_hell" depends="war-build">
+        <exec executable="scp">
+            <arg line="-P 2222 iad-lab.war s225111@se.ifmo.ru:~"/>
+        </exec>
     </target>
 </project>
