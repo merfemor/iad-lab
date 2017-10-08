@@ -146,8 +146,8 @@
                 <div id="X">
                     <p>Input coordinate X:</p>
                     <p>
-                        <select id="Xcor" name="Xcor" requied placeholder=0>
-                            <option value="-3">-3</option>
+                        <select id="Xcor" name="Xcor" requied>
+                            <option selected value="-3">-3</option>
                             <option value="-2">-2</option>
                             <option value="-1">-1</option>
                             <option value="0">0</option>
@@ -167,12 +167,12 @@
                 </div>
                 <div id="R">
                     <p>Input radius R:</p>
-                        <select onchange = "draw_a_plate(this.value)" id="Rrad" name="Rrad" requied placeholder=1>
+                        <select onchange = "draw_a_plate(this.value)" id="Rrad" name="Rrad" requied placeholder=3>
                             <option value="1">1</option>
                             <option value="1.5">1.5</option>
                             <option value="2">2</option>
                             <option value="2.5">2.5</option>
-                            <option value="3">3</option>
+                            <option selected value="3">3</option>
                         </select>
                     <script src = "canvas_drawing.js"></script>
                 </div>
@@ -183,10 +183,9 @@
         </div>
 
         <div class="coordinate_plate">
-            <canvas id="plate" width="400px" height="400px">
-                <script src="canvas_drawing.js"></script>
-            </canvas>
+            <canvas id="plate" width="400px" height="400px"></canvas>
         </div>
+        <script src = "canvas_drawing.js"></script>
     </div>
 
 
@@ -260,7 +259,7 @@
             If you have already donated, you can
             <a id="turn-off-ads" href="#begin">
                 <ins>turn off advertising
-                    <ins/>
+                    </ins>
             </a> .
             <script src="adblocking.js" type="text/javascript"></script>
             <script type="text/javascript">

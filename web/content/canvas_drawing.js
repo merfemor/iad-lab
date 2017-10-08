@@ -1,5 +1,3 @@
-var R = 3;
-
 function draw_a_plate(val) {
     var canvas = document.getElementById("plate");
     var ctx = canvas.getContext("2d");
@@ -7,13 +5,13 @@ function draw_a_plate(val) {
 
     var R = val;
     ctx.clearRect(0, 0, 400, 400);
-    ctx.fillStyle = "rgba(51, 123, 225, 0.8)"
+    ctx.fillStyle = "rgba(51, 123, 225, 0.8)";
     //square
     var xy = 200 - 50 * R;
     ctx.fillRect(xy, xy, 50 * R, 50 * R);
 
     //triangle
-    ctx.strokeStyle = "rgba(51, 123, 225, 0.8)"
+    ctx.strokeStyle = "rgba(51, 123, 225, 0.8)";
     ctx.beginPath();
     ctx.moveTo(200 - 25 * R, 200);
     ctx.lineTo(200, 200 + 25 * R);
@@ -26,5 +24,7 @@ function draw_a_plate(val) {
     ctx.stroke();
     ctx.fill();
 }
+document.getElementById("Rrad").value = 3;
+draw_a_plate(3);
 
-Rrad.addEventListener("onchange", draw_a_plate)
+Rrad.addEventListener("onchange", draw_a_plate);
