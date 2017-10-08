@@ -2,8 +2,8 @@ function getPoint() {
     var canvas = document.getElementById("plate");
 
     canvas.onclick = function (event) {
-        var x = event.clientX - canvas.getBoundingClientRect().left;
-        var y = event.clientY - canvas.getBoundingClientRect().top;
+        var x = event.clientX - canvas.getBoundingClientRect().left - 200;
+        var y = event.clientY - canvas.getBoundingClientRect().top - 200;
         var r = document.getElementById("Rrad").value;
         sendPoint(x, y, r);
         draw_point(x, y, canvas);

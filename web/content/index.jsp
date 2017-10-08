@@ -106,7 +106,7 @@
         }
 
         #previous-results {
-            display: block;
+            display: relative;
         }
     </style>
 </head>
