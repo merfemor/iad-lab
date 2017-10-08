@@ -26,7 +26,7 @@ function sendPoint(x, y, r) {
     $.ajax({
         type: "POST",
         url: "controller",
-        data: ({Xcor:x, Ycor:y, Rrad:r}),
+        data: ({Xcor:x, Ycor:y, Rrad:r, Ajax: true}),
     });
 }
 
