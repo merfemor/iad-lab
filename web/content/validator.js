@@ -1,6 +1,7 @@
 function validator(event){
     var s = this.value;
     var sf = false;
+    var pf = false;
     for (var i = 0; i < s.length; i++) {
         if (s[i] == "-") {
             if (sf) {
@@ -11,7 +12,16 @@ function validator(event){
                 sf = true;
             }
         }
-        else if ((s[i] < '0' || s[i] > '9') && s[i] != '.') {
+        else if (s[i] == '.'){
+            if (pf) {
+                s = s.substring(0, i);
+                break;
+            }
+            else {
+                pf = true;
+            }
+        }
+        else if (s[i] < '0' || s[i] > '9') {
             s = s.substring(0, i);
             break;
         }
