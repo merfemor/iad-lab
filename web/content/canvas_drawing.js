@@ -23,6 +23,7 @@ function draw_a_plate(val) {
     ctx.arc(200, 200, 25 * R, 0, pi/2, false);
     ctx.stroke();
     ctx.fill();
+    ctx.closePath();
 }
 document.getElementById("Rrad").value = 3;
 draw_a_plate(3);

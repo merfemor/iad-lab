@@ -7,6 +7,7 @@
     integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
     <meta charset="utf-8">
     <title>IAD - lab</title>
+    <script type="text/javascript" src="jquery-3.2.1.js"></script>
     <style type="text/css">
         .header, .footer {
             background: lightcyan;
@@ -103,6 +104,10 @@
             vertical-align: top;
             background-image: url(pics/plate.png);
         }
+
+        #previous-results {
+            display: block;
+        }
     </style>
 </head>
 
@@ -184,91 +189,93 @@
                 </form>
             </div>
 
-            <div class="coordinate_plate">
+            <div class="coordinate_plate" id = "coordinate_plate">
                 <canvas id="plate" width="400px" height="400px"></canvas>
             </div>
-            <script src = "canvas_drawing.js"></script>
-        </div>
-    </div>
+                <script src = "canvas_drawing.js"></script>
+                <script src = "clickpoint.js" defer></script>
+            </div>
 
-    <%
-        List<Point> previousPoints = (List<Point>) application.getAttribute("previousPointList");
-        String styleForDiv = "";
-        if (previousPoints == null || previousPoints.size() == 0)
-            styleForDiv = "style=\"display: none\"";
-    %>
-    <div id="previous-results" <%=styleForDiv%> >
-        <h1>Previous results:</h1>
-        <table class="pure-table pure-table-bordered">
-            <thead>
-            <tr>
-                <th>№</th>
-                <th>x</th>
-                <th>y</th>
-                <th>R</th>
-                <th>in area</th>
-            </tr>
-            </thead>
-            <tbody>
-            <%
-                if (previousPoints != null) {
-                    int i = 1;
-                    for (Point p: previousPoints) {
+        <%
+            List<Point> previousPoints = (List<Point>) application.getAttribute("previousPointList");
+            String styleForDiv = "";
+            if (previousPoints == null || previousPoints.size() == 0)
+                styleForDiv = "style=\"display: none\"";
+        %>
+        <div id="previous-results" <%=styleForDiv%> >
+            <h1>Previous results:</h1>
+            <table class="pure-table pure-table-bordered">
+                <thead>
+                <tr>
+                    <th>№</th>
+                    <th>x</th>
+                    <th>y</th>
+                    <th>R</th>
+                    <th>in area</th>
+                </tr>
+                </thead>
+                <tbody>
+                <%
+                    if (previousPoints != null) {
+                        int i = 1;
+                        for (Point p: previousPoints) {
                             out.print("<tr>\n" +
-                                            "<th>" + i + "</th>\n" +
-                                            "<th>" + p.x + "</th>\n" +
-                                            "<th>" + p.y + "</th>\n" +
-                                            "<th>" + p.radius + "</th>\n" +
-                                            "<th>");
+                                    "<th>" + i + "</th>\n" +
+                                    "<th>" + p.x + "</th>\n" +
+                                    "<th>" + p.y + "</th>\n" +
+                                    "<th>" + p.radius + "</th>\n" +
+                                    "<th>");
                             if (p.isInRegion)
-                                    out.println("<font color=\"green\">yes</font>");
+                                out.println("<font color=\"green\">yes</font>");
                             else
                                 out.println("<font color=\"red\">no</font>");
                             out.println("</tr>");
                             i++;
                         }
-                }
-            %>
-           </tbody>
-        </table>
+                    }
+                %>
+                </tbody>
+            </table>
+        </div>
+
     </div>
 </div>
 
-    <div id="ad-unit-r" class="ad-unit" style="display: none">
-        <table align="center">
-            <col width=165px>
-            <tr align="center" valign="top">
-                <td>
-                    <img src="gifs/rek/ad4.gif" class="ad-img">
-                    <br>
-                    <a class="ad-link" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
-                        Сервер будет стоять неделю!!!</a>
-                </td>
+<div id="ad-unit-r" class="ad-unit" style="display: none">
+    <table align="center">
+        <col width=165px>
+        <tr align="center" valign="top">
+            <td>
+                <img src="gifs/rek/ad4.gif" class="ad-img">
+                <br>
+                <a class="ad-link" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
+                    Сервер будет стоять неделю!!!</a>
+            </td>
 
-                <td>
-                    <img src="gifs/rek/ad5.gif" class="ad-img">
-                    <br>
-                    <a class="ad-link" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
-                        Преподаватели годами скрывали секрет успешной сдачи работ! Надо просто...</a>
-                </td>
-            </tr>
-            <col width="165px">
-            <tr align="center">
-                <td>
-                    <img src="gifs/rek/ad6.gif" class="ad-img">
-                    <br>
-                    <a class="ad-link" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
-                        Каждый студент мечтает об этом!!! Пассивный доход 2 балла за лабу, надо только добавить это.</a>
-                </td>
-                <td>
-                    <img src="gifs/rek/ad3.gif" class="ad-img">
-                    <br>
-                    <a class="ad-link" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
-                        Археологи ужаснулись, откопав это! Возраст находки поразил всех!!!</a>
-                </td>
-            </tr>
-        </table>
-    </div>
+            <td>
+                <img src="gifs/rek/ad5.gif" class="ad-img">
+                <br>
+                <a class="ad-link" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
+                    Преподаватели годами скрывали секрет успешной сдачи работ! Надо просто...</a>
+            </td>
+        </tr>
+        <col width="165px">
+        <tr align="center">
+            <td>
+                <img src="gifs/rek/ad6.gif" class="ad-img">
+                <br>
+                <a class="ad-link" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
+                    Каждый студент мечтает об этом!!! Пассивный доход 2 балла за лабу, надо только добавить это.</a>
+            </td>
+            <td>
+                <img src="gifs/rek/ad3.gif" class="ad-img">
+                <br>
+                <a class="ad-link" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
+                    Археологи ужаснулись, откопав это! Возраст находки поразил всех!!!</a>
+            </td>
+        </tr>
+    </table>
+</div>
 
 <div class="footer">
     <div id="left-footer">
