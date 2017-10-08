@@ -11,7 +11,7 @@ function validator(event){
                 sf = true;
             }
         }
-        else if (s[i] < '0' || s[i] > '9') {
+        else if ((s[i] < '0' || s[i] > '9') && s[i] != '.') {
             s = s.substring(0, i);
             break;
         }
