@@ -23,12 +23,13 @@ function draw_point(x, y, canvas) {
 }
 
 function sendPoint(x, y, r) {
-    resX = (x - 200) / 50;
-    resY = (200 - y) / 50;
+    resX = Math.round(((x - 200) / 50) * 1000) / 1000;
+    resY = Math.round(((200 - y) / 50) * 1000) / 1000;
     $.ajax({
         type: "POST",
         url: "controller",
         data: ({Xcor:resX, Ycor:resY, Rrad:r, Ajax: true}),
+        //success:
     });
 }
 

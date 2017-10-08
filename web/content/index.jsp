@@ -9,10 +9,19 @@
     <title>IAD - lab</title>
     <script type="text/javascript" src="jquery-3.2.1.js"></script>
     <style type="text/css">
-        .header, .footer {
+        .footer {
             background: lightcyan;
             border-top: 1px solid;
             border-bottom: 1px solid;
+            bottom: 0px;
+            position: absolute;
+        }
+
+        .header {
+            background: lightcyan;
+            border-top: 1px solid;
+            border-bottom: 1px solid;
+            height: 100px;
         }
 
         h2 {
@@ -49,8 +58,9 @@
         }
 
         #ad-unit-r {
-            float: right;
-            max-width: 40%;
+            position: absolute;
+            top: 102px;
+            right: 0px;
         }
 
         .ad-img {
@@ -103,6 +113,15 @@
             margin-left: 20px;
             vertical-align: top;
             background-image: url(pics/plate.png);
+        }
+
+        #previous-results {
+            vertical-align: top;
+            margin-left: 20px;
+        }
+
+        #Ycor {
+            width: 100px;
         }
     </style>
 </head>
@@ -200,7 +219,7 @@
         %>
         <div id="previous-results" <%=styleForDiv%> >
             <h1>Previous results:</h1>
-            <table class="pure-table pure-table-bordered">
+            <table class="pure-table pure-table-bordered" id="result_table">
                 <thead>
                 <tr>
                     <th>№</th>
@@ -233,7 +252,6 @@
                 </tbody>
             </table>
         </div>
-
     </div>
 </div>
 
@@ -272,6 +290,7 @@
         </tr>
     </table>
 </div>
+
 
 <div class="footer">
     <div id="left-footer">
