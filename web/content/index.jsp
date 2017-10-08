@@ -104,10 +104,6 @@
             vertical-align: top;
             background-image: url(pics/plate.png);
         }
-
-        #previous-results {
-            display: block;
-        }
     </style>
 </head>
 

@@ -24,7 +24,7 @@ function draw_point(x, y, canvas) {
 
 function sendPoint(x, y, r) {
     resX = (x - 200) / 50;
-    resY = (y - 200) / 50;
+    resY = (200 - y) / 50;
     $.ajax({
         type: "POST",
         url: "controller",
