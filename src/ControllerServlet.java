@@ -13,7 +13,9 @@ public class ControllerServlet extends HttpServlet {
         String y = req.getParameter("Ycor");
         String r = req.getParameter("Rrad");
 
-        if (x == null || y == null || r == null || !isValidParameters(x, y, r) ) {
+        if (req.getParameter("Ajax") != null) {
+            req.getRequestDispatcher("/check").forward(req, resp);
+        } else if (x == null || y == null || r == null || !isValidParameters(x, y, r)) {
             req.getRequestDispatcher("/index.jsp").forward(req, resp);
         } else {
             req.getRequestDispatcher("/check").forward(req, resp);

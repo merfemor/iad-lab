@@ -19,6 +19,10 @@ public class AreaCheckServlet extends HttpServlet {
         config.getServletContext().setAttribute("previousPointList", previousPointList);
     }
 
+    protected void ajaxProcess(HttpServletResponse resp, Point p) throws IOException {
+        resp.getWriter().println(p.isInRegion);
+    }
+
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         double x = Double.parseDouble(req.getParameter("Xcor"));
@@ -26,6 +30,11 @@ public class AreaCheckServlet extends HttpServlet {
         double r = Double.parseDouble(req.getParameter("Rrad"));
         Point point = new Point(x, y, r);
         previousPointList.add(point);
+
+        if (req.getParameter("Ajax") != null) {
+            ajaxProcess(resp, point);
+            return;
+        }
 
         resp.setContentType("text/html");
         PrintWriter out = resp.getWriter();
@@ -45,12 +54,12 @@ public class AreaCheckServlet extends HttpServlet {
         out.println("<body>\n" +
                 "<b>Entered values</b>:<br>\n" +
                 "\t<table cellspacing='1'>\n" +
-                "\t\t<tr> <td>x</td> <td>" +  point.x + "</td> </tr>\n" +
+                "\t\t<tr> <td>x</td> <td>" + point.x + "</td> </tr>\n" +
                 "\t\t<tr> <td>y</td> <td>" + point.y + "</td> </tr>\n" +
                 "\t\t<tr> <td>r</td> <td>" + point.radius + "</td> </tr>\n" +
                 "\t</table><br>\n" +
                 "The point is in the region: <font color=\"");
-        if(point.isInRegion) {
+        if (point.isInRegion) {
             out.print("green\"><b>true</b>");
         } else {
             out.print("red\"><b>false</b>");
