@@ -48,7 +48,7 @@ function sendPoint(x, y, r) {
             table = document.getElementById("result_table");
             var row = document.createElement("TR");
             var number = document.createElement("TD");
-            number.appendChild(document.createTextNode(table.rows.length + 1));
+            number.appendChild(document.createTextNode(table.rows.length));
             var xcol = document.createElement("TD");
             xcol.appendChild(document.createTextNode(resX));
             var ycol = document.createElement("TD");
@@ -56,13 +56,27 @@ function sendPoint(x, y, r) {
             var rcol = document.createElement("TD");
             rcol.appendChild(document.createTextNode(r));
             var inarea_col = document.createElement("TD");
-            inarea_col.appendChild(document.createTextNode(data));
+            if (data.localeCompare("true") == 1){
+                inarea_col.appendChild(document.createTextNode("yes"));
+            }
+            else {
+                inarea_col.appendChild(document.createTextNode("no"));
+            }
             row.appendChild(number);
             row.appendChild(xcol);
             row.appendChild(ycol);
             row.appendChild(rcol);
             row.appendChild(inarea_col);
             table.appendChild(row);
+            table.style.textAlign = "center";
+            table.style.fontWeight = "bold";
+            //table.style.
+            if (data.localeCompare("true") == 1){
+                table.rows[table.rows.length - 1].cells[4].style.color = "green";
+            }
+            else {
+                table.rows[table.rows.length - 1].cells[4].style.color = "red";
+            }
         }
     });
 }
