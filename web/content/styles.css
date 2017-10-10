@@ -107,6 +107,8 @@ A[href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"]:hover {
 #previous-results {
     vertical-align: top;
     margin-left: 20px;
+    height: 425px;
+    overflow: auto;
 }
 
 #Ycor {
