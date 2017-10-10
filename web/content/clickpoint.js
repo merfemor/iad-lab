@@ -22,6 +22,21 @@ function draw_point(x, y, canvas) {
     ctx.closePath();
 }
 
+function add_result(x, y, r, inarea) {
+
+
+
+    var tbody = document.getElementById(id).getElementsByTagName("TBODY")[0];
+    var row = document.createElement("TR")
+    var td1 = document.createElement("TD")
+    td1.appendChild(document.createTextNode("column 1"))
+    var td2 = document.createElement("TD")
+    td2.appendChild (document.createTextNode("column 2"))
+    row.appendChild(td1);
+    row.appendChild(td2);
+    tbody.appendChild(row);
+}
+
 function sendPoint(x, y, r) {
     resX = Math.round(((x - 200) / 50) * 1000) / 1000;
     resY = Math.round(((200 - y) / 50) * 1000) / 1000;
@@ -29,7 +44,26 @@ function sendPoint(x, y, r) {
         type: "POST",
         url: "controller",
         data: ({Xcor:resX, Ycor:resY, Rrad:r, Ajax: true}),
-        //success:
+        success: function (data) {
+            table = document.getElementById("result_table");
+            var row = document.createElement("TR");
+            var number = document.createElement("TD");
+            number.appendChild(document.createTextNode(table.rows.length + 1));
+            var xcol = document.createElement("TD");
+            xcol.appendChild(document.createTextNode(resX));
+            var ycol = document.createElement("TD");
+            ycol.appendChild(document.createTextNode(resY));
+            var rcol = document.createElement("TD");
+            rcol.appendChild(document.createTextNode(r));
+            var inarea_col = document.createElement("TD");
+            inarea_col.appendChild(document.createTextNode(data));
+            row.appendChild(number);
+            row.appendChild(xcol);
+            row.appendChild(ycol);
+            row.appendChild(rcol);
+            row.appendChild(inarea_col);
+            table.appendChild(row);
+        }
     });
 }
 

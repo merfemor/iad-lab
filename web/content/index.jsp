@@ -2,128 +2,13 @@
 <!DOCTYPE html>
 
 <html>
-<head>
+<li>
     <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css"
     integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
     <meta charset="utf-8">
     <title>IAD - lab</title>
     <script type="text/javascript" src="jquery-3.2.1.js"></script>
-    <style type="text/css">
-        .footer {
-            background: lightcyan;
-            border-top: 1px solid;
-            border-bottom: 1px solid;
-            bottom: 0px;
-            position: absolute;
-        }
-
-        .header {
-            background: lightcyan;
-            border-top: 1px solid;
-            border-bottom: 1px solid;
-            height: 100px;
-        }
-
-        h2 {
-            color: grey;
-            font-size: 150%;
-            font-family: "Garamond", monospace;
-        }
-
-        .layout {
-            overflow: hidden;
-        }
-
-        .layout DIV {
-            float: left;
-        }
-
-        #content DIV {
-            float: none;
-            display: inline-block;
-        }
-
-        #content {
-            padding-left: 40px;
-            width: auto;
-        }
-
-        #input DIV {
-            display: block;
-        }
-
-        #ad-unit-l {
-            width: auto;
-            max-width: 20%;
-        }
-
-        #ad-unit-r {
-            position: absolute;
-            top: 102px;
-            right: 0px;
-        }
-
-        .ad-img {
-            height: auto;
-            width: 80%;
-        }
-
-        A[href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"]:hover {
-            font-size: 115%;
-            color: red;
-        }
-
-        #left-footer {
-            float: left;
-            width: 50%;
-        }
-
-        .Stallman {
-            width: auto;
-            height: 78px;
-            float: left;
-        }
-
-        #no-adblock-img {
-            width: auto;
-            height: 78px;
-            float: left;
-        }
-
-        #right-footer {
-            display: inline-block;
-            width: 50%;
-        }
-
-        #right-footer P {
-            padding-left: 10px;
-        }
-
-        .footer {
-            position: absolute;
-            bottom: 0px;
-            width: 99%;
-        }
-
-        .coordinate_plate {
-            width: 400px;
-            height: 400px;
-            border: 1px solid black;
-            margin-top: 20px;
-            margin-left: 20px;
-            vertical-align: top;
-            background-image: url(pics/plate.png);
-        }
-
-        #previous-results {
-            vertical-align: top;
-            margin-left: 20px;
-        }
-
-        #Ycor {
-            width: 100px;
-        }
-    </style>
+    <link rel = "stylesheet" type = "text/css" href = "styles.css">
 </head>
 
 <body>
@@ -213,11 +98,8 @@
 
         <%
             List<Point> previousPoints = (List<Point>) application.getAttribute("previousPointList");
-            String styleForDiv = "";
-            if (previousPoints == null || previousPoints.size() == 0)
-                styleForDiv = "style=\"display: none\"";
         %>
-        <div id="previous-results" <%=styleForDiv%> >
+        <div id="previous-results">
             <h1>Previous results:</h1>
             <table class="pure-table pure-table-bordered" id="result_table">
                 <thead>

@@ -1,0 +1,114 @@
+.footer {
+    background: lightcyan;
+    border-top: 1px solid;
+    border-bottom: 1px solid;
+    bottom: 0px;
+    position: absolute;
+}
+
+.header {
+    background: lightcyan;
+    border-top: 1px solid;
+    border-bottom: 1px solid;
+    height: 100px;
+}
+
+h2 {
+    color: grey;
+    font-size: 150%;
+    font-family: "Garamond", monospace;
+}
+
+.layout {
+    overflow: hidden;
+}
+
+.layout DIV {
+    float: left;
+}
+
+#content DIV {
+    float: none;
+    display: inline-block;
+}
+
+#content {
+    padding-left: 40px;
+    width: auto;
+}
+
+#input DIV {
+    display: block;
+}
+
+#ad-unit-l {
+    width: auto;
+    max-width: 20%;
+}
+
+#ad-unit-r {
+    position: absolute;
+    top: 122px;
+    right: 0px;
+}
+
+.ad-img {
+    height: auto;
+    width: 80%;
+}
+
+A[href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"]:hover {
+    font-size: 115%;
+    color: red;
+}
+
+#left-footer {
+    float: left;
+    width: 50%;
+}
+
+.Stallman {
+    width: auto;
+    height: 78px;
+    float: left;
+}
+
+#no-adblock-img {
+    width: auto;
+    height: 78px;
+    float: left;
+}
+
+#right-footer {
+    display: inline-block;
+    width: 50%;
+}
+
+#right-footer P {
+    padding-left: 10px;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0px;
+    width: 99%;
+}
+
+.coordinate_plate {
+    width: 400px;
+    height: 400px;
+    border: 1px solid black;
+    margin-top: 20px;
+    margin-left: 20px;
+    vertical-align: top;
+    background-image: url(pics/plate.png);
+}
+
+#previous-results {
+    vertical-align: top;
+    margin-left: 20px;
+}
+
+#Ycor {
+    width: 100px;
+}
