@@ -10,22 +10,28 @@ function getPoint() {
     }
 }
 
-function draw_point(x, y, canvas) {
+function draw_point(x, y, color) {
+    canvas = document.getElementById("plate");
     var ctx = canvas.getContext("2d");
     var pi = Math.PI;
     ctx.beginPath();
-    ctx.fillStyle = "red";
-    ctx.strokeStyle = "red";
+    if (color == 1){
+        ctx.fillStyle = "green";
+        ctx.strokeStyle = "green";
+    }
+    else {
+        ctx.fillStyle = "red";
+        ctx.strokeStyle = "red";
+    }
     ctx.arc(x, y, 3, 0, 2*pi);
     ctx.stroke();
     ctx.fill();
     ctx.closePath();
+
+
 }
 
 function add_result(x, y, r, inarea) {
-
-
-
     var tbody = document.getElementById(id).getElementsByTagName("TBODY")[0];
     var row = document.createElement("TR")
     var td1 = document.createElement("TD")
@@ -77,6 +83,7 @@ function sendPoint(x, y, r) {
             else {
                 table.rows[table.rows.length - 1].cells[4].style.color = "red";
             }
+            draw_point(x, y, data.localeCompare("true"));
         }
     });
 }
