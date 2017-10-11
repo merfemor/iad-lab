@@ -4,7 +4,6 @@ function draw_a_plate(val) {
     var pi = Math.PI;
 
     var R = val;
-    ctx.clearRect(0, 0, 400, 400);
     ctx.fillStyle = "rgba(51, 123, 225, 0.8)";
     //square
     var xy = 200 - 50 * R;

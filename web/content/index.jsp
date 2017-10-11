@@ -92,7 +92,6 @@
                 <canvas id="plate" width="400px" height="400px"></canvas>
             </div>
                 <script src = "canvas_drawing.js"></script>
-                <script src = "clickpoint.js" defer></script>
             </div>
 
         <%
@@ -222,6 +221,7 @@
 
     </div>
 </div>
+<script src = "clickpoint.js" defer></script>
 
 </body>
 

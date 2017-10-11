@@ -1,3 +1,8 @@
+res_table = document.getElementById("result_table");
+for (i = 1; i < res_table.rows.length; i++) {
+    draw_point(res_table.rows[i].cells[1].textContent, res_table.rows[i].cells[2].textContent, res_table.rows[i].cells[4].textContent.substring(0, 3).localeCompare("yes"));
+}
+
 function getPoint() {
     var canvas = document.getElementById("plate");
 
@@ -6,11 +11,13 @@ function getPoint() {
         var y = event.clientY - canvas.getBoundingClientRect().top;
         var r = document.getElementById("Rrad").value;
         sendPoint(x, y, r);
-        draw_point(x, y, canvas);
+        //draw_point(x, y, canvas);
     }
 }
 
 function draw_point(x, y, color) {
+    x = x * 50 + 200;
+    y = 200 - y * 50;
     canvas = document.getElementById("plate");
     var ctx = canvas.getContext("2d");
     var pi = Math.PI;
@@ -28,7 +35,13 @@ function draw_point(x, y, color) {
     ctx.fill();
     ctx.closePath();
 
-
+    /*if (color.localeCompare("yes") == 1){
+        table.rows[table.rows.length - 1].cells[4].style.color = "green";
+    }
+    else {
+        table.rows[table.rows.length - 1].cells[4].style.color = "red";
+    }*/
+    //draw_point(x, y, data.localeCompare("true"));
 }
 
 function add_result(x, y, r, inarea) {
@@ -77,13 +90,7 @@ function sendPoint(x, y, r) {
             table.style.textAlign = "center";
             table.style.fontWeight = "bold";
             //table.style.
-            if (data.localeCompare("true") == 1){
-                table.rows[table.rows.length - 1].cells[4].style.color = "green";
-            }
-            else {
-                table.rows[table.rows.length - 1].cells[4].style.color = "red";
-            }
-            draw_point(x, y, data.localeCompare("true"));
+            draw_point(resX, resY, data.localeCompare("true"))
         }
     });
 }
