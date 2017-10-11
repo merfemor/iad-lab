@@ -1,6 +1,6 @@
 res_table = document.getElementById("result_table");
 for (i = 1; i < res_table.rows.length; i++) {
-    draw_point(res_table.rows[i].cells[1].textContent, res_table.rows[i].cells[2].textContent, res_table.rows[i].cells[4].textContent.substring(0, 3).localeCompare("yes"));
+    draw_point(res_table.rows[i].cells[1].textContent, res_table.rows[i].cells[2].textContent, res_table.rows[i].cells[4].textContent.substring(0, 3) == "yes");
 }
 
 function getPoint() {
