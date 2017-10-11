@@ -1,4 +1,4 @@
-<%@page contentType="text/html" pageEncoding="UTF-8" import="java.util.List, point.Point" %>
+<%@page contentType="text/html" pageEncoding="UTF-8" import="java.util.List, point.Point, java.lang.Math" %>
 <!DOCTYPE html>
 
 <html>
@@ -117,9 +117,9 @@
                         for (Point p: previousPoints) {
                             out.print("<tr>\n" +
                                     "<th>" + i + "</th>\n" +
-                                    "<th>" + p.x + "</th>\n" +
-                                    "<th>" + p.y + "</th>\n" +
-                                    "<th>" + p.radius + "</th>\n" +
+                                    "<th>" +  (double) Math.round(p.x * 1000) / 1000 + "</th>\n" +
+                                    "<th>" + (double) Math.round(p.y * 1000) / 1000 + "</th>\n" +
+                                    "<th>" + (new java.lang.Double(p.radius)).intValue() + "</th>\n" +
                                     "<th>");
                             if (p.isInRegion)
                                 out.println("<font color=\"green\">yes</font>");
