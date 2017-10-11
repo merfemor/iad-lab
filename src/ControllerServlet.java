@@ -1,5 +1,4 @@
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -12,8 +11,9 @@ public class ControllerServlet extends HttpServlet {
         String x = req.getParameter("Xcor");
         String y = req.getParameter("Ycor");
         String r = req.getParameter("Rrad");
-
-        if (req.getParameter("Ajax") != null) {
+        if(req.getParameter("exprcalc") != null) {
+            req.getRequestDispatcher("/check").forward(req, resp);
+        }else if(req.getParameter("exprcalc") != null || req.getParameter("Ajax") != null) {
             req.getRequestDispatcher("/check").forward(req, resp);
         } else if (x == null || y == null || r == null || !isValidParameters(x, y, r)) {
             req.getRequestDispatcher("/index.jsp").forward(req, resp);
