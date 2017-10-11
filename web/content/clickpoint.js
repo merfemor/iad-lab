@@ -35,12 +35,8 @@ function draw_point(x, y, color) {
     ctx.fill();
     ctx.closePath();
 
-    /*if (color.localeCompare("yes") == 1){
-        table.rows[table.rows.length - 1].cells[4].style.color = "green";
-    }
-    else {
-        table.rows[table.rows.length - 1].cells[4].style.color = "red";
-    }*/
+    /*
+    */
     //draw_point(x, y, data.localeCompare("true"));
 }
 
@@ -90,7 +86,13 @@ function sendPoint(x, y, r) {
             table.style.textAlign = "center";
             table.style.fontWeight = "bold";
             //table.style.
-            draw_point(resX, resY, data.localeCompare("true"))
+            draw_point(resX, resY, data.localeCompare("true"));
+            if (data.localeCompare("true") == 1){
+                table.rows[table.rows.length - 1].cells[4].style.color = "green";
+            }
+            else {
+                table.rows[table.rows.length - 1].cells[4].style.color = "red";
+            }
         }
     });
 }
