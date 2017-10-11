@@ -1,5 +1,7 @@
 import point.Point;
 
+import javax.script.ScriptEngine;
+import javax.script.ScriptEngineManager;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -23,8 +25,24 @@ public class AreaCheckServlet extends HttpServlet {
         resp.getWriter().println(p.isInRegion);
     }
 
+    protected void calcAjaxProcess(HttpServletResponse resp, String expr) throws IOException {
+        PrintWriter out = resp.getWriter();
+        try {
+            ScriptEngineManager scriptEngineManager = new ScriptEngineManager();
+            ScriptEngine engine = scriptEngineManager.getEngineByName("JavaScript");
+            out.println("= "  + engine.eval(expr));
+        } catch (Exception e) {
+            out.print("bad expression");
+        }
+    }
+
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        if(req.getParameter("exprcalc") != null) {
+            calcAjaxProcess(resp, req.getParameter("exprcalc"));
+            return;
+        }
+
         double x = Double.parseDouble(req.getParameter("Xcor"));
         double y = Double.parseDouble(req.getParameter("Ycor"));
         double r = Double.parseDouble(req.getParameter("Rrad"));
@@ -35,6 +53,8 @@ public class AreaCheckServlet extends HttpServlet {
             ajaxProcess(resp, point);
             return;
         }
+
+
 
         resp.setContentType("text/html");
         PrintWriter out = resp.getWriter();
