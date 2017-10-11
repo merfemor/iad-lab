@@ -2,12 +2,12 @@
 <!DOCTYPE html>
 
 <html>
-    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css"
-    integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
-    <meta charset="utf-8">
-    <title>IAD - lab</title>
-    <script type="text/javascript" src="jquery-3.2.1.js"></script>
-    <link rel = "stylesheet" type = "text/css" href = "styles.css">
+<link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css"
+      integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
+<meta charset="utf-8">
+<title>IAD - lab</title>
+<script type="text/javascript" src="jquery-3.2.1.js"></script>
+<link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 
 <body>
@@ -73,14 +73,14 @@
                     </div>
                     <div id="R">
                         <p>Input radius R:</p>
-                            <select onchange = "draw_a_plate(this.value)" id="Rrad" name="Rrad" requied placeholder=3>
-                                <option value="1">1</option>
-                                <option value="1.5">1.5</option>
-                                <option value="2">2</option>
-                                <option value="2.5">2.5</option>
-                                <option selected value="3">3</option>
-                            </select>
-                        <script src = "canvas_drawing.js"></script>
+                        <select onchange="draw_a_plate(this.value)" id="Rrad" name="Rrad" requied placeholder=3>
+                            <option value="1">1</option>
+                            <option value="1.5">1.5</option>
+                            <option value="2">2</option>
+                            <option value="2.5">2.5</option>
+                            <option selected value="3">3</option>
+                        </select>
+                        <script src="canvas_drawing.js"></script>
                     </div>
                     <div id="Submit">
                         <p><input id="sub" name="sub" type="submit" value="Submit"></p>
@@ -88,11 +88,11 @@
                 </form>
             </div>
 
-            <div class="coordinate_plate" id = "coordinate_plate">
+            <div class="coordinate_plate" id="coordinate_plate">
                 <canvas id="plate" width="400px" height="400px"></canvas>
             </div>
-                <script src = "canvas_drawing.js"></script>
-            </div>
+            <script src="canvas_drawing.js"></script>
+        </div>
 
         <%
             List<Point> previousPoints = (List<Point>) application.getAttribute("previousPointList");
@@ -113,10 +113,10 @@
                 <%
                     if (previousPoints != null) {
                         int i = 1;
-                        for (Point p: previousPoints) {
+                        for (Point p : previousPoints) {
                             out.print("<tr>\n" +
                                     "<th>" + i + "</th>\n" +
-                                    "<th>" +  (double) Math.round(p.x * 1000) / 1000 + "</th>\n" +
+                                    "<th>" + (double) Math.round(p.x * 1000) / 1000 + "</th>\n" +
                                     "<th>" + (double) Math.round(p.y * 1000) / 1000 + "</th>\n" +
                                     "<th>" + (new java.lang.Double(p.radius)).intValue() + "</th>\n" +
                                     "<th>");
@@ -221,7 +221,31 @@
 
     </div>
 </div>
-<script src = "clickpoint.js" defer></script>
+
+<div>
+    <form method="POST" id="calcform">
+        <input type="text" name="expr" id="exprcalc">
+        <input type="text" id="result-calc" disabled="true">
+        <input type="button" id="calcbut" value="Count">
+    </form>
+    <script>
+        $("#calcbut")[0].onclick = function () {
+            $.ajax({
+                type: "POST",
+                url: "controller",
+                data: ({
+                    exprcalc: $('#exprcalc').val()
+                }),
+                success: function (data) {
+                    $('#result-calc').val(data)
+                }
+            });
+            return 1;
+        }
+    </script>
+</div>
+
+<script src="clickpoint.js" defer></script>
 
 </body>
 
