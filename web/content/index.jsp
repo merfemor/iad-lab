@@ -7,6 +7,7 @@
 <meta charset="utf-8">
 <title>IAD - lab</title>
 <script type="text/javascript" src="jquery-3.2.1.js"></script>
+<script type="text/javascript" src="change_color.js" defer></script>
 <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 
@@ -133,6 +134,12 @@
             </table>
         </div>
     </div>
+</div>
+
+<div id = "snowmanlol" align = "center">
+    <div id = "top-circle"></div>
+    <div id = "middle-circle"></div>
+    <div id = "bottom-circle"></div>
 </div>
 
 <div id="ad-unit-r" class="ad-unit" style="display: none">
