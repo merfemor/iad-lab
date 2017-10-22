@@ -47,6 +47,8 @@ public class PointsBean {
     }
 
     public boolean isInArea() {
-        return area.isInArea(new Point(this.x, this.y));
+        Point point = new Point(this.x, this.y);
+        /* TODO: store point in database */
+        return area.isInArea(point);
     }
 }
