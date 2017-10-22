@@ -3,6 +3,7 @@
 *.log
 *.synctex.gz
 logs
+.idea/workspace.xml
 classes
 *.war
 out
