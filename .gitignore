@@ -2,9 +2,7 @@
 *.aux
 *.log
 *.synctex.gz
-.idea
 logs
-*.iml
 classes
 *.war
 out

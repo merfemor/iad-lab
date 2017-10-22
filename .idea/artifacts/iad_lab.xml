@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" build-on-make="true" name="iad-lab">
+    <output-path>$PROJECT_DIR$/out/artifacts/iad_lab</output-path>
+    <root id="archive" name="iad-lab.war">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="lab-rep" />
+        </element>
+        <element id="directory" name="lib" />
+      </element>
+      <element id="javaee-facet-resources" facet="lab-rep/web/Web" />
+    </root>
+  </artifact>
+</component>
