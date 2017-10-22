@@ -1,9 +1,10 @@
 package graphics;
 
-public class Lab3Area extends Area {
+public class Lab3Area implements Area {
+    private final Double radius;
 
     public Lab3Area(Double radius) {
-        super(radius);
+        this.radius = radius;
     }
 
     @Override

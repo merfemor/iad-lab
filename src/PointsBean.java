@@ -1,15 +1,14 @@
+import graphics.Point;
+
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import java.util.LinkedList;
 import java.util.List;
-
-import graphics.*;
 
 @ManagedBean(name = "pointsbean", eager = true)
 @SessionScoped
 public class PointsBean {
     private Double x, y, radius;
-    private List<Point> previousPoints;
-    private Lab3Area area;
 
     public Double getX() {
         return x;
@@ -33,5 +32,11 @@ public class PointsBean {
 
     public void setRadius(Double radius) {
         this.radius = radius;
+    }
+
+    public List<Point> getPreviousPoints() {
+        List<Point> points = new LinkedList<>();
+        /* TODO: select from database */
+        return points;
     }
 }
