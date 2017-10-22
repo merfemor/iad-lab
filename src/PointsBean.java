@@ -1,3 +1,5 @@
+import graphics.Area;
+import graphics.Lab3Area;
 import graphics.Point;
 
 import javax.faces.bean.ManagedBean;
@@ -9,6 +11,7 @@ import java.util.List;
 @SessionScoped
 public class PointsBean {
     private Double x, y, radius;
+    private Area area;
 
     public Double getX() {
         return x;
@@ -31,12 +34,19 @@ public class PointsBean {
     }
 
     public void setRadius(Double radius) {
+        if (this.radius.equals(radius))
+            return;
         this.radius = radius;
+        area = new Lab3Area(radius);
     }
 
-    public List<Point> getPreviousPoints() {
-        List<Point> points = new LinkedList<>();
+    public List<Result> getPreviousResults() {
+        List<Result> resultList = new LinkedList<>();
         /* TODO: select from database */
-        return points;
+        return resultList;
+    }
+
+    public boolean isInArea() {
+        return area.isInArea(new Point(this.x, this.y));
     }
 }
