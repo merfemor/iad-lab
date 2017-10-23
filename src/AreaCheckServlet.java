@@ -13,6 +13,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class AreaCheckServlet extends HttpServlet {
+    private PointsDatabase pointsDatabase = new PointsDatabase();
     private List<Point> previousPointList;
 
     @Override
@@ -48,6 +49,7 @@ public class AreaCheckServlet extends HttpServlet {
         double r = Double.parseDouble(req.getParameter("Rrad"));
         Point point = new Point(x, y, r);
         previousPointList.add(point);
+        pointsDatabase.store(point);
 
         if (req.getParameter("Ajax") != null) {
             ajaxProcess(resp, point);
