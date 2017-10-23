@@ -10,8 +10,8 @@ import java.util.List;
 @ManagedBean(name = "pointsbean", eager = true)
 @SessionScoped
 public class PointsBean {
-    private Double x, y, radius;
-    private Area area;
+    private Double x, y, radius = 1.0;
+    private Area area = new Lab3Area(this.radius);
 
     public Double getX() {
         return x;
