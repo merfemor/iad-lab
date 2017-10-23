@@ -3,6 +3,7 @@
 *.log
 *.synctex.gz
 logs
+.idea/dataSources*
 .idea/workspace.xml
 lib
 classes
