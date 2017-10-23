@@ -4,6 +4,7 @@
 *.synctex.gz
 logs
 .idea/workspace.xml
+lib
 classes
 *.war
 out
