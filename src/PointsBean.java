@@ -10,6 +10,7 @@ import java.util.List;
 @ManagedBean(name = "pointsbean", eager = true)
 @SessionScoped
 public class PointsBean {
+    private final PointsStorage pointsStorage = new PointsStorage();
     private Double x, y, radius = 1.0;
     private Area area = new Lab3Area(this.radius);
 
@@ -41,14 +42,16 @@ public class PointsBean {
     }
 
     public List<Result> getPreviousResults() {
+        List<Point> points = pointsStorage.getAll();
         List<Result> resultList = new LinkedList<>();
-        /* TODO: select from database */
+        for (Point point : points)
+            resultList.add(new Result(point, area.isInArea(point)));
         return resultList;
     }
 
     public boolean isInArea() {
         Point point = new Point(this.x, this.y);
-        /* TODO: store point in database */
+        pointsStorage.add(point);
         return area.isInArea(point);
     }
 }
