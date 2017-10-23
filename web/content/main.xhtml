@@ -19,5 +19,38 @@
         <h:commandButton value="Submit" action="#{FormMBean.isInArea}"/>
     </h:form>
 
+    <div id = "result_table">
+        <h:dataTable value="#{FormMBean.getPreviousResults()}" var = "obj">
+            <h:column>
+                <f:facet name = "header">
+                    <h:outputText value="X">
+                    </h:outputText>
+                </f:facet>
+                <h:outputText value="#{obj.isInArea()}"/>
+            </h:column>
+            <h:column>
+                <f:facet name = "header">
+                    <h:outputText value="Y">
+                    </h:outputText>
+                </f:facet>
+                <h:outputText value="#{obj.isInArea()}"/>
+            </h:column>
+            <h:column>
+                <f:facet name = "header">
+                    <h:outputText value="R">
+                    </h:outputText>
+                </f:facet>
+                <h:outputText value="#{obj.isInArea()}"/>
+            </h:column>
+            <h:column>
+                <f:facet name = "header">
+                    <h:outputText value="In area">
+                    </h:outputText>
+                </f:facet>
+                <h:outputText value="#{obj.isInArea()}"/>
+            </h:column>
+        </h:dataTable>
+    </div>
+
 </h:body>
 </html>
