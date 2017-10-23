@@ -1,6 +1,6 @@
 <component name="libraryTable">
   <library name="javax.servlet:javax.servlet-api:4.0.0" type="repository">
-    <properties include-transitive-deps="false" maven-id="javax.servlet:javax.servlet-api:4.0.0" />
+    <properties maven-id="javax.servlet:javax.servlet-api:4.0.0" />
     <CLASSES>
       <root url="jar://$PROJECT_DIR$/lib/javax.servlet-api-4.0.0.jar!/" />
     </CLASSES>

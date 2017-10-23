@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+    <title>IAD - lab</title>
+    <h:link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css"
+          integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous"/>
+</h:head>
+<h:body>
+    <h:form>
+        X input: <h:inputText value = "#{FormMBean.x}"/>
+        Y input: <h:inputText value = "#{FormMBean.y}"/>
+        R input: <h:inputText value = "#{FormMBean.radius}"/>
+        <h:commandButton value="Submit" action="#{FormMBean.isInArea}"/>
+    </h:form>
+
+</h:body>
+</html>
