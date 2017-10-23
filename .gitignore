@@ -3,7 +3,9 @@
 *.log
 *.synctex.gz
 logs
+.idea/dataSources*
 .idea/workspace.xml
+.idea/uiDesigner.xml
 lib
 classes
 *.war

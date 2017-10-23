@@ -17,6 +17,11 @@
     </target>
 
     <target name="war-build" depends="build">
+        <copy todir="${build}">
+            <fileset dir="${src}">
+                <include name="*.xml"/>
+            </fileset>
+        </copy>
         <war destfile="iad-lab.war" webxml="${web}/WEB-INF/web.xml">
             <fileset dir="${web}/content"/>
             <lib dir="lib/"/>
