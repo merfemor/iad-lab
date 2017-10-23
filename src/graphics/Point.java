@@ -9,20 +9,27 @@ import javax.persistence.Id;
 public class Point {
     @Id
     @GeneratedValue
-    private final Double x;
+    private Long id;
     @Column
-    private final Double y;
+    private Double x;
+    @Column
+    private Double y;
 
     public Point(Double x, Double y) {
         this.x = x;
         this.y = y;
     }
 
+    public Point() {
+    }
+
     public Double getX() {
         return x;
     }
 
+
     public Double getY() {
         return y;
     }
+
 }
