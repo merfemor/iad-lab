@@ -4,6 +4,8 @@
 *.synctex.gz
 logs
 .idea/workspace.xml
+.idea/dataSources*
+.idea/uiDesigner.xml
 lib
 classes
 *.war
