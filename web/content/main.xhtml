@@ -4,7 +4,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ace="http://www.icefaces.org/icefaces/components">
 
 <h:head>
     <title>IAD - lab</title>
@@ -21,16 +22,16 @@
         <h2> Made by Roman Efremov and Danil Sinitskiy </h2>
     </div>
 
-    <div class = "layout">
+    <div class="layout">
         <div id="ad-unit-l" class="ad-unit">
             <div id="firstColon" class="add_colon">
-                <div id = "first_block" class = "add_block">
+                <div id="first_block" class="add_block">
                     <img src="gifs/rek/ad1.gif" alt="Perminoff" class="ad-img"/>
                     <br/>
                     <a class="ad-link" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
                         Борода будет расти как на дрожжах, если пользоваться этим средством. Всего 66,6 рублей...</a>
                 </div>
-                <div id = "second_block" class = "add_block">
+                <div id="second_block" class="add_block">
                     <img src="gifs/rek/ad2.gif" alt="FNS" class="ad-img"/>
                     <br/>
                     <a class="ad-link" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
@@ -39,61 +40,64 @@
             </div>
         </div>
 
-        <div id = "InputForm">
-            <h:form id = "Form">
-                <div id = "Xcor">
+        <div id="InputForm">
+            <h:form id="Form">
+                <div id="Xcor">
                     <p>X input:</p>
-                    <h:inputText value = "#{FormMBean.x}"/>
+                    <h:inputText value="#{FormMBean.x}"/>
                     <br/>
                 </div>
-                <div id = "Ycor">
+                <div id="Yelem">
                     <p>Y input:</p>
-                    <h:inputText value = "#{FormMBean.y}"/>
+                    <ace:sliderEntry id="Ycor" axis="x" clickableRail="true" length="150px" min="-2" max="2"
+                                     stepPercent="20"/>
+
                     <br/>
                 </div>
-                <div id = "Rrad">
+                <div id="Rrad">
                     <p>R input:</p>
-                    <h:inputText value = "#{FormMBean.radius}"/>
+                    <h:inputText value="#{FormMBean.radius}"/>
                     <br/>
                 </div>
-                <div id = "Sudmit">
+                <div id="Sudmit">
                     <h:commandButton value="Submit" action="#{FormMBean.isInArea}"/>
                 </div>
             </h:form>
         </div>
 
         <div class="coordinate_plate" id="coordinate_plate">
-            <canvas id="plate" width="400px" height="400px">Canvas not supported</canvas>   <!--как задать в css корректно?-->
+            <canvas id="plate" width="400px" height="400px">Canvas not supported
+            </canvas>   <!--как задать в css корректно?-->
         </div>
         <script src="canvas_drawing.js" type="text/javascript"/>
+        <a href="./start.xhtml">START</a>
 
 
-        <!--
-        <div id = "result_table">
-            <h:dataTable value="#{FormMBean.getPreviousResults()}" var = "obj">
+        <div id="result_table">
+            <h:dataTable value="#{FormMBean.getPreviousResults()}" var="obj">
                 <h:column>
-                    <f:facet name = "header">
+                    <f:facet name="header">
                         <h:outputText value="X">
                         </h:outputText>
                     </f:facet>
-                    <h:outputText value="#{obj.isInArea()}"/>
+                    <h:outputText value="#{obj.x}"/>
                 </h:column>
                 <h:column>
-                    <f:facet name = "header">
+                    <f:facet name="header">
                         <h:outputText value="Y">
                         </h:outputText>
                     </f:facet>
-                    <h:outputText value="#{obj.isInArea()}"/>
+                    <h:outputText value="#{obj.y}"/>
                 </h:column>
                 <h:column>
-                    <f:facet name = "header">
+                    <f:facet name="header">
                         <h:outputText value="R">
                         </h:outputText>
                     </f:facet>
-                    <h:outputText value="#{obj.isInArea()}"/>
+                    <h:outputText value="#{obj.radius()}"/>
                 </h:column>
                 <h:column>
-                    <f:facet name = "header">
+                    <f:facet name="header">
                         <h:outputText value="In area">
                         </h:outputText>
                     </f:facet>
@@ -101,17 +105,16 @@
                 </h:column>
             </h:dataTable>
         </div>
-        -->
 
-        <div id ="ad-unit-r" class="ad-unit">
+        <div id="ad-unit-r" class="ad-unit">
             <div id="secondColon" class="add_colon">
-                <div id = "third_block" class = "add_block">
+                <div id="third_block" class="add_block">
                     <img src="gifs/rek/ad4.gif" alt="Perminoff" class="ad-img"/>
                     <br/>
                     <a class="ad-link" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
                         Сервер будет стоять неделю!!!</a>
                 </div>
-                <div id = "fourth_block" class = "add_block">
+                <div id="fourth_block" class="add_block">
                     <img src="gifs/rek/ad6.gif" alt="FNS" class="ad-img"/>
                     <br/>
                     <a class="ad-link" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
@@ -120,13 +123,13 @@
             </div>
 
             <div id="thirdColon" class="add_colon">
-                <div id = "fifth_block" class = "add_block">
+                <div id="fifth_block" class="add_block">
                     <img src="gifs/rek/ad5.gif" alt="Perminoff" class="ad-img"/>
                     <br/>
                     <a class="ad-link" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
                         Преподаватели годами скрывали секрет успешной сдачи работ! Надо просто...</a>
                 </div>
-                <div id = "sixth_block" class = "add_block">
+                <div id="sixth_block" class="add_block">
                     <img src="gifs/rek/ad3.gif" alt="FNS" class="ad-img"/>
                     <br/>
                     <a class="ad-link" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
@@ -138,7 +141,7 @@
 
     <div id="footer">
         <div id="left-footer" class="foot">
-            <div id = "Stallman">
+            <div id="Stallman">
                 <img class="Stallman" alt="Footeater" src="./pics/Stoll.png"/>
             </div>
             <div id="left_foot_text">
@@ -151,7 +154,7 @@
             </div>
         </div>
         <div id="right-footer" class="foot">
-            <div id = "no-adblock">
+            <div id="no-adblock">
                 <img id="no-adblock-img" alt="Feed us" src="pics/noadblock.png"/>
             </div>
             <div id="right_foot_text">
