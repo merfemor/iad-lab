@@ -1,10 +1,8 @@
-dateContainer = document.getElementById('time');
+timeContainer = document.getElementById('time');
 updateTime();
 function updateTime() {
-    var curDateTime = new Date();
-    var curTime = curDateTime.toLocaleTimeString();
-    //var curDate = curDateTime.toLocaleDateString();
-    dateContainer.innerHTML = curTime;
-    //dateContainer.innerHTML = curDate;
-    setTimeout('updateTime()', 5000);
+    curDateTime = new Date();
+    curTime = curDateTime.toLocaleTimeString();
+    timeContainer.innerHTML = curTime;
+    setTimeout('updateTime()', 1000);
 }
