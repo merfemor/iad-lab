@@ -8,49 +8,164 @@
 
 <h:head>
     <title>IAD - lab</title>
-    <h:link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css"
-          integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css"/>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+    <script type="text/javascript" src="jquery-3.2.1.js"/>
+    <script type="text/javascript" src="change_color.js"/>
 </h:head>
 <h:body>
-    <h:form>
-        X input: <h:inputText value = "#{FormMBean.x}"/>
-        Y input: <h:inputText value = "#{FormMBean.y}"/>
-        R input: <h:inputText value = "#{FormMBean.radius}"/>
-        <h:commandButton value="Submit" action="#{FormMBean.isInArea}"/>
-    </h:form>
-
-    <div id = "result_table">
-        <h:dataTable value="#{FormMBean.getPreviousResults()}" var = "obj">
-            <h:column>
-                <f:facet name = "header">
-                    <h:outputText value="X">
-                    </h:outputText>
-                </f:facet>
-                <h:outputText value="#{obj.isInArea()}"/>
-            </h:column>
-            <h:column>
-                <f:facet name = "header">
-                    <h:outputText value="Y">
-                    </h:outputText>
-                </f:facet>
-                <h:outputText value="#{obj.isInArea()}"/>
-            </h:column>
-            <h:column>
-                <f:facet name = "header">
-                    <h:outputText value="R">
-                    </h:outputText>
-                </f:facet>
-                <h:outputText value="#{obj.isInArea()}"/>
-            </h:column>
-            <h:column>
-                <f:facet name = "header">
-                    <h:outputText value="In area">
-                    </h:outputText>
-                </f:facet>
-                <h:outputText value="#{obj.isInArea()}"/>
-            </h:column>
-        </h:dataTable>
+    <div class="header">
+        <img src="./gifs/cats_01.gif" id="leftcat" alt="ololo"/>
+        <img src="./gifs/cats_04.gif" id="rightcat" alt="ololo"/>
+        <h2> gr.P3211 var.355</h2>
+        <h2> Made by Roman Efremov and Danil Sinitskiy </h2>
     </div>
 
+    <div class = "layout">
+        <div id="ad-unit-l" class="ad-unit">
+            <div id="firstColon" class="add_colon">
+                <div id = "first_block" class = "add_block">
+                    <img src="gifs/rek/ad1.gif" alt="Perminoff" class="ad-img"/>
+                    <br/>
+                    <a class="ad-link" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
+                        Борода будет расти как на дрожжах, если пользоваться этим средством. Всего 66,6 рублей...</a>
+                </div>
+                <div id = "second_block" class = "add_block">
+                    <img src="gifs/rek/ad2.gif" alt="FNS" class="ad-img"/>
+                    <br/>
+                    <a class="ad-link" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
+                        Мужчина был ШОКИРОВАН, увидев это...</a>
+                </div>
+            </div>
+        </div>
+
+        <div id = "InputForm">
+            <h:form id = "Form">
+                <div id = "Xcor">
+                    <p>X input:</p>
+                    <h:inputText value = "#{FormMBean.x}"/>
+                    <br/>
+                </div>
+                <div id = "Ycor">
+                    <p>Y input:</p>
+                    <h:inputText value = "#{FormMBean.y}"/>
+                    <br/>
+                </div>
+                <div id = "Rrad">
+                    <p>R input:</p>
+                    <h:inputText value = "#{FormMBean.radius}"/>
+                    <br/>
+                </div>
+                <div id = "Sudmit">
+                    <h:commandButton value="Submit" action="#{FormMBean.isInArea}"/>
+                </div>
+            </h:form>
+        </div>
+
+        <div class="coordinate_plate" id="coordinate_plate">
+            <canvas id="plate" width="400px" height="400px">Canvas not supported</canvas>   <!--как задать в css корректно?-->
+        </div>
+        <script src="canvas_drawing.js" type="text/javascript"/>
+
+
+        <!--
+        <div id = "result_table">
+            <h:dataTable value="#{FormMBean.getPreviousResults()}" var = "obj">
+                <h:column>
+                    <f:facet name = "header">
+                        <h:outputText value="X">
+                        </h:outputText>
+                    </f:facet>
+                    <h:outputText value="#{obj.isInArea()}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name = "header">
+                        <h:outputText value="Y">
+                        </h:outputText>
+                    </f:facet>
+                    <h:outputText value="#{obj.isInArea()}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name = "header">
+                        <h:outputText value="R">
+                        </h:outputText>
+                    </f:facet>
+                    <h:outputText value="#{obj.isInArea()}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name = "header">
+                        <h:outputText value="In area">
+                        </h:outputText>
+                    </f:facet>
+                    <h:outputText value="#{obj.isInArea()}"/>
+                </h:column>
+            </h:dataTable>
+        </div>
+        -->
+
+        <div id ="ad-unit-r" class="ad-unit">
+            <div id="secondColon" class="add_colon">
+                <div id = "third_block" class = "add_block">
+                    <img src="gifs/rek/ad4.gif" alt="Perminoff" class="ad-img"/>
+                    <br/>
+                    <a class="ad-link" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
+                        Сервер будет стоять неделю!!!</a>
+                </div>
+                <div id = "fourth_block" class = "add_block">
+                    <img src="gifs/rek/ad6.gif" alt="FNS" class="ad-img"/>
+                    <br/>
+                    <a class="ad-link" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
+                        Каждый студент мечтает об этом!!! Пассивный доход 2 балла за лабу, надо только добавить это.</a>
+                </div>
+            </div>
+
+            <div id="thirdColon" class="add_colon">
+                <div id = "fifth_block" class = "add_block">
+                    <img src="gifs/rek/ad5.gif" alt="Perminoff" class="ad-img"/>
+                    <br/>
+                    <a class="ad-link" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
+                        Преподаватели годами скрывали секрет успешной сдачи работ! Надо просто...</a>
+                </div>
+                <div id = "sixth_block" class = "add_block">
+                    <img src="gifs/rek/ad3.gif" alt="FNS" class="ad-img"/>
+                    <br/>
+                    <a class="ad-link" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
+                        Археологи ужаснулись, откопав это! Возраст находки поразил всех!!!</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="footer">
+        <div id="left-footer" class="foot">
+            <div id = "Stallman">
+                <img class="Stallman" alt="Footeater" src="./pics/Stoll.png"/>
+            </div>
+            <div id="left_foot_text">
+                It's a full free project&copy;
+                <br/>
+                <a href="https://github.com/merfemor/iad-lab">https://github.com/merfemor/iad-lab</a><br/>
+                You can help developers by
+                <a href="https://docs.google.com/spreadsheets/d/12L0BR27avnnyiePcc0Af_1zE-U9VVqdj8YMRvxmbJAM/edit#gid=445358099">donating</a>
+                in cells <b>Q9</b> and <b>Q19</b>
+            </div>
+        </div>
+        <div id="right-footer" class="foot">
+            <div id = "no-adblock">
+                <img id="no-adblock-img" alt="Feed us" src="pics/noadblock.png"/>
+            </div>
+            <div id="right_foot_text">
+                Please turn off your Adblock, we
+                <ins>earn scores</ins>
+                on advertising. <br/>
+                If you have already donated, you can
+                <a id="turn-off-ads" href="#begin">
+                    <ins>turn off advertising</ins>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="clickpoint.js" type="text/javascript"/>
 </h:body>
 </html>
