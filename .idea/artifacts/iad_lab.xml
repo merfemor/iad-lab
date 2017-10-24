@@ -10,8 +10,8 @@
           <element id="library" level="project" name="com.sun.faces:jsf-api:2.2.13" />
           <element id="library" level="project" name="javax.servlet:javax.servlet-api:4.0.0" />
           <element id="library" level="project" name="org.hibernate:hibernate-core:5.2.11.Final" />
-          <element id="library" level="project" name="org.icefaces:icefaces:4.2.0" />
           <element id="library" level="project" name="org.postgresql:postgresql:9.4.1212" />
+          <element id="library" level="project" name="org.icefaces:icefaces-ace:4.2.0" />
         </element>
       </element>
       <element id="javaee-facet-resources" facet="lab-rep/web/Web" />
