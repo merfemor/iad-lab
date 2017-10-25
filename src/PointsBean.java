@@ -10,7 +10,7 @@ import java.util.List;
 @ManagedBean(name = "pointsbean", eager = true)
 @SessionScoped
 public class PointsBean {
-    private Double x, y, radius = 1.0;
+    private Double x, y, radius = 2.0;
     private Area area = new Lab3Area(this.radius);
 
     public Double getX() {
@@ -42,6 +42,12 @@ public class PointsBean {
 
     public List<Result> getPreviousResults() {
         List<Result> resultList = new LinkedList<>();
+
+        // test data
+        Point p = new Point(13.0, 666.0);
+        Result r = new Result(p, area.isInArea(p));
+        resultList.add(r);
+
         /* TODO: select from database */
         return resultList;
     }
