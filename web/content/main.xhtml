@@ -45,13 +45,13 @@
             <h:form id="Form">
                 <div id="Xcor">
                     <p>X input:</p>
-                    <h:inputText value="#{FormMBean.x}"/>
+                    <h:inputText value="#{FormMBean.x}" required="true"/>
                     <br/>
                 </div>
 
                 <div id="Yelem">
                     <p>Y input:</p>
-                    <p:inputNumber id="y-input" value="#{FormMBean.y}"/>
+                    <p:inputNumber id="y-input" value="#{FormMBean.y}" required="true"/>
                     <p:slider for="y-input"
                               minValue="-2"
                               maxValue="2"
@@ -62,7 +62,7 @@
 
                 <div id="Rrad">
                     <p>R input:</p>
-                    <p:inputNumber id="radius-input" value="#{FormMBean.radius}"/>
+                    <p:inputNumber id="radius-input" value="#{FormMBean.radius}" required="true"/>
                     <p:slider for="radius-input"
                               minValue="0.5"
                               maxValue="3"
