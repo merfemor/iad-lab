@@ -3,9 +3,7 @@
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
-      xmlns:ace="http://www.icefaces.org/icefaces/components"
       xmlns:p="http://primefaces.org/ui">
 
 <h:head>
@@ -52,7 +50,8 @@
                 <div id="Yelem">
                     <p>Y input:</p>
                     <br/>
-                    <div id = "Yslider">
+                    <!--<div id = "Yslxmlns:ace="http://www.icefaces.org/icefaces/components"ider">
+
                         <ace:sliderEntry id="Ycor" axis="#{slider.axis}"
                                          clickableRail="#{slider.clickableRail}"
                                          length="#{slider.length}"
@@ -63,7 +62,7 @@
                                          value="#{slider.sliderValue}">
                             <ace:ajax event="slideEnd" execute="@this" render="@form" />
                         </ace:sliderEntry>
-                    </div>
+                    </div>-->
 
                     <div id = "YsliderText">
                         <h:outputText id="sliderValue" value="#{slider.sliderValue}"/>
