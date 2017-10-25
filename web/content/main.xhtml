@@ -12,6 +12,7 @@
     <link rel="stylesheet" type="text/css" href="styles.css"/>
     <script type="text/javascript" src="change_color.js"/>
     <script type="text/javascript" src="clickpoint.js"/>
+    <script type="text/javascript" src="canvas_drawing.js"/>
 
 
 </h:head>
@@ -63,7 +64,7 @@
                 <div id="Rrad">
                     <p>R input:</p>
 
-                    <p:inputNumber onchange="draw_a_plate()" id="radius-input" value="#{FormMBean.radius}" required="true"/>
+                    <p:inputNumber id="radius-input" value="#{FormMBean.radius}" required="true"/>
 
                     <p:slider for="radius-input"
                               minValue="0.5"
@@ -84,7 +85,7 @@
             </canvas>   <!--как задать в css корректно?-->
             <script src="canvas_drawing.js" type="text/javascript"></script>
         </div>
-        <script src="canvas_drawing.js" type="text/javascript"/>
+        <!--<script src="canvas_drawing.js" type="text/javascript"/>-->
         <a href="./start.xhtml">START</a>
 
 

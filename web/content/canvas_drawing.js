@@ -24,5 +24,3 @@ function draw_a_plate(val) {
     ctx.fill();
     ctx.closePath();
 }
-document.getElementById("Rrad").value = 3;
-draw_a_plate(3);
