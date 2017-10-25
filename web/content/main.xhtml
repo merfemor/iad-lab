@@ -48,13 +48,19 @@
 
                 <div id="Yelem">
                     <p>Y input:</p>
-                    <br/>
+                    <p:inputNumber id="y-input" value="#{FormMBean.y}"/>
+                    <p:slider for="y-input"
+                              minValue="-2"
+                              maxValue="2"
+                              step="1"
+                              style="width: 100%;"/> <!-- TODO: move style to .css -->
+
                 </div>
 
                 <div id="Rrad">
                     <p>R input:</p>
                     <p:inputNumber id="radius-input" value="#{FormMBean.radius}"/>
-                    <p:slider id="radius-slider" for="radius-input"
+                    <p:slider for="radius-input"
                               minValue="2"
                               maxValue="5"
                               step="0.1"
