@@ -26,5 +26,3 @@ function draw_a_plate(val) {
 }
 document.getElementById("Rrad").value = 3;
 draw_a_plate(3);
-
-Rrad.addEventListener("onchange", draw_a_plate);

@@ -11,8 +11,11 @@
     <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css"/>
     <link rel="stylesheet" type="text/css" href="styles.css"/>
     <script type="text/javascript" src="change_color.js"/>
+    <script type="text/javascript" src="clickpoint.js"/>
+
+
 </h:head>
-<h:body>
+<h:body onload ="draw_points()">
     <div class="header">
         <img src="./gifs/cats_01.gif" id="leftcat" alt="ololo"/>
         <img src="./gifs/cats_04.gif" id="rightcat" alt="ololo"/>
@@ -61,10 +64,11 @@
                     <p>R input:</p>
                     <p:inputNumber id="radius-input" value="#{FormMBean.radius}"/>
                     <p:slider for="radius-input"
-                              minValue="2"
-                              maxValue="5"
+                              minValue="0.5"
+                              maxValue="3"
                               step="0.1"
                               style="width: 100%;"/> <!-- TODO: move style to .css -->
+                    <!-- p:ajax event="" -->
                 </div>
 
                 <div id="Sudmit">
@@ -81,8 +85,8 @@
         <a href="./start.xhtml">START</a>
 
 
-        <div id="result_table">
-            <h:dataTable class="pure-table" value="#{FormMBean.getPreviousResults()}" var="obj">
+        <div id="results">
+            <h:dataTable class="pure-table" id="result_table" value="#{FormMBean.getPreviousResults()}" var="obj">
                 <h:column>
                     <f:facet name="header">
                         <h:outputText value="X">

@@ -57,6 +57,11 @@ p {
     width: auto;
 }
 
+#results {
+    margin-left: 20px;
+    margin-top: 20px;
+}
+
 #input DIV {
     display: block;
 }

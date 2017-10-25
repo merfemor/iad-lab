@@ -1,7 +1,11 @@
-res_table = document.getElementById("result_table");
-for (i = 1; i < res_table.rows.length; i++) {
-    draw_point(res_table.rows[i].cells[1].textContent, res_table.rows[i].cells[2].textContent, res_table.rows[i].cells[4].textContent.substring(0, 3) == "yes");
+function draw_points() {
+    res_table = document.getElementById("result_table");
+    for (i = 1; i < res_table.rows.length; i++) {
+        draw_point(res_table.rows[i].cells[0].textContent, res_table.rows[i].cells[1].textContent, res_table.rows[i].cells[2].textContent);
+    }
+    getPoint();
 }
+
 
 function getPoint() {
     var canvas = document.getElementById("plate");
@@ -22,7 +26,7 @@ function draw_point(x, y, color) {
     var ctx = canvas.getContext("2d");
     var pi = Math.PI;
     ctx.beginPath();
-    if (color == 1){
+    if (color == "true"){
         ctx.fillStyle = "green";
         ctx.strokeStyle = "green";
     }
@@ -62,25 +66,19 @@ function sendPoint(x, y, r) {
         success: function (data) {
             table = document.getElementById("result_table");
             var row = document.createElement("TR");
-            var number = document.createElement("TD");
-            number.appendChild(document.createTextNode(table.rows.length));
             var xcol = document.createElement("TD");
             xcol.appendChild(document.createTextNode(resX));
             var ycol = document.createElement("TD");
             ycol.appendChild(document.createTextNode(resY));
             var rcol = document.createElement("TD");
-            rcol.appendChild(document.createTextNode(r));
-            var inarea_col = document.createElement("TD");
             if (data.localeCompare("true") == 1){
                 inarea_col.appendChild(document.createTextNode("yes"));
             }
             else {
                 inarea_col.appendChild(document.createTextNode("no"));
             }
-            row.appendChild(number);
             row.appendChild(xcol);
             row.appendChild(ycol);
-            row.appendChild(rcol);
             row.appendChild(inarea_col);
             table.appendChild(row);
             table.style.textAlign = "center";
@@ -96,5 +94,3 @@ function sendPoint(x, y, r) {
         }
     });
 }
-
-getPoint();
