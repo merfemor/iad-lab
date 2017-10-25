@@ -21,6 +21,10 @@ h2 {
     vertical-align: center;
 }
 
+p {
+    color: darkgrey;
+}
+
 .layout {
     overflow: hidden;
 }
@@ -29,6 +33,14 @@ h2 {
     margin-left: auto;
     margin-right: auto;
     display: inline-block;
+}
+
+#YsliderText {
+    margin-left: 20px;
+}
+
+#Yslider {
+    margin-left: 10px;
 }
 
 .layout DIV {

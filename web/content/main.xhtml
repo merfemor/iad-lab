@@ -5,7 +5,8 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
-      xmlns:ace="http://www.icefaces.org/icefaces/components">
+      xmlns:ace="http://www.icefaces.org/icefaces/components"
+      xmlns:p="http://primefaces.org/ui">
 
 <h:head>
     <title>IAD - lab</title>
@@ -47,18 +48,34 @@
                     <h:inputText value="#{FormMBean.x}"/>
                     <br/>
                 </div>
+
                 <div id="Yelem">
                     <p>Y input:</p>
-                    <ace:sliderEntry id="Ycor" axis="x" clickableRail="true" length="150px" min="-2" max="2"
-                                     stepPercent="20"/>
-
                     <br/>
+                    <div id = "Yslider">
+                        <ace:sliderEntry id="Ycor" axis="#{slider.axis}"
+                                         clickableRail="#{slider.clickableRail}"
+                                         length="#{slider.length}"
+                                         min="#{slider.minValue}"
+                                         max="#{slider.maxValue}"
+                                         stepPercent="#{slider.stepPercent}"
+                                         showLabels="#{slider.getshowLabels()}"
+                                         value="#{slider.sliderValue}">
+                            <ace:ajax event="slideEnd" execute="@this" render="@form" />
+                        </ace:sliderEntry>
+                    </div>
+
+                    <div id = "YsliderText">
+                        <h:outputText id="sliderValue" value="#{slider.sliderValue}"/>
+                    </div>
                 </div>
+
                 <div id="Rrad">
                     <p>R input:</p>
-                    <h:inputText value="#{FormMBean.radius}"/>
-                    <br/>
+                    <p:inputText id="txt1" value="#{rradBean.number1}" />
+                    <p:slider for="txt1" minValue="2" maxValue="5" step="0.1"/>
                 </div>
+
                 <div id="Sudmit">
                     <h:commandButton value="Submit" action="#{FormMBean.isInArea}"/>
                 </div>

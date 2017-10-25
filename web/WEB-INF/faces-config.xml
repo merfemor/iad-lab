@@ -9,4 +9,16 @@
         <managed-bean-class>PointsBean</managed-bean-class>
         <managed-bean-scope>request</managed-bean-scope>
     </managed-bean>
+
+    <managed-bean>
+        <managed-bean-name>YcorMBean</managed-bean-name>
+        <managed-bean-class>ycorBean</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+
+    <managed-bean>
+        <managed-bean-name>RradMBean</managed-bean-name>
+        <managed-bean-class>rradBean</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
 </faces-config>
