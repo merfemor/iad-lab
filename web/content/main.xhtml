@@ -10,7 +10,6 @@
     <title>IAD - lab</title>
     <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css"/>
     <link rel="stylesheet" type="text/css" href="styles.css"/>
-    <script type="text/javascript" src="jquery-3.2.1.js"/>
     <script type="text/javascript" src="change_color.js"/>
 </h:head>
 <h:body>
@@ -50,29 +49,16 @@
                 <div id="Yelem">
                     <p>Y input:</p>
                     <br/>
-                    <!--<div id = "Yslxmlns:ace="http://www.icefaces.org/icefaces/components"ider">
-
-                        <ace:sliderEntry id="Ycor" axis="#{slider.axis}"
-                                         clickableRail="#{slider.clickableRail}"
-                                         length="#{slider.length}"
-                                         min="#{slider.minValue}"
-                                         max="#{slider.maxValue}"
-                                         stepPercent="#{slider.stepPercent}"
-                                         showLabels="#{slider.getshowLabels()}"
-                                         value="#{slider.sliderValue}">
-                            <ace:ajax event="slideEnd" execute="@this" render="@form" />
-                        </ace:sliderEntry>
-                    </div>-->
-
-                    <div id = "YsliderText">
-                        <h:outputText id="sliderValue" value="#{slider.sliderValue}"/>
-                    </div>
                 </div>
 
                 <div id="Rrad">
                     <p>R input:</p>
-                    <p:inputText id="txt1" value="#{rradBean.number1}" />
-                    <p:slider for="txt1" minValue="2" maxValue="5" step="0.1"/>
+                    <p:inputText id="radius-input" value="#{FormMBean.radius}"/>
+                    <p:slider id="radius-slider" for="radius-input"
+                              minValue="2"
+                              maxValue="5"
+                              step="0.1"
+                              style="width: 100%;"/> <!-- TODO: move style to .css -->
                 </div>
 
                 <div id="Sudmit">
