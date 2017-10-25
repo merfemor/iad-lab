@@ -10,6 +10,7 @@ function draw_points() {
 function getPoint() {
     var canvas = document.getElementById("plate");
 
+
     canvas.onclick = function (event) {
         var x = event.clientX - canvas.getBoundingClientRect().left;
         var y = event.clientY - canvas.getBoundingClientRect().top;
@@ -59,38 +60,9 @@ function add_result(x, y, r, inarea) {
 function sendPoint(x, y, r) {
     resX = Math.round(((x - 200) / 50) * 1000) / 1000;
     resY = Math.round(((200 - y) / 50) * 1000) / 1000;
-    $.ajax({
-        type: "POST",
-        url: "controller",
-        data: ({Xcor:resX, Ycor:resY, Rrad:r, Ajax: true}),
-        success: function (data) {
-            table = document.getElementById("result_table");
-            var row = document.createElement("TR");
-            var xcol = document.createElement("TD");
-            xcol.appendChild(document.createTextNode(resX));
-            var ycol = document.createElement("TD");
-            ycol.appendChild(document.createTextNode(resY));
-            var rcol = document.createElement("TD");
-            if (data.localeCompare("true") == 1){
-                inarea_col.appendChild(document.createTextNode("yes"));
-            }
-            else {
-                inarea_col.appendChild(document.createTextNode("no"));
-            }
-            row.appendChild(xcol);
-            row.appendChild(ycol);
-            row.appendChild(inarea_col);
-            table.appendChild(row);
-            table.style.textAlign = "center";
-            table.style.fontWeight = "bold";
-            //table.style.
-            draw_point(resX, resY, data.localeCompare("true"));
-            if (data.localeCompare("true") == 1){
-                table.rows[table.rows.length - 1].cells[4].style.color = "green";
-            }
-            else {
-                table.rows[table.rows.length - 1].cells[4].style.color = "red";
-            }
-        }
-    });
+    document.getElementById("Form:x-input").value = resX;
+    document.getElementById("Form:y-input_hinput").value = resY;
+    document.getElementById("Form:SubButton").click();
 }
+
+getPoint();

@@ -45,7 +45,7 @@
             <h:form id="Form">
                 <div id="Xcor">
                     <p>X input:</p>
-                    <h:inputText value="#{FormMBean.x}" required="true"/>
+                    <h:inputText id = "x-input" value="#{FormMBean.x}" required="true"/>
                     <br/>
                 </div>
 
@@ -62,7 +62,9 @@
 
                 <div id="Rrad">
                     <p>R input:</p>
-                    <p:inputNumber id="radius-input" value="#{FormMBean.radius}" required="true"/>
+
+                    <p:inputNumber onchange="draw_a_plate()" id="radius-input" value="#{FormMBean.radius}" required="true"/>
+
                     <p:slider for="radius-input"
                               minValue="0.5"
                               maxValue="3"
@@ -71,8 +73,8 @@
                     <!-- p:ajax event="" -->
                 </div>
 
-                <div id="Sudmit">
-                    <h:commandButton value="Submit" action="#{FormMBean.isInArea}"/>
+                <div id="Submit">
+                    <h:commandButton id = "SubButton" value="Submit" action="#{FormMBean.isInArea}"/>
                 </div>
             </h:form>
         </div>
@@ -80,6 +82,7 @@
         <div class="coordinate_plate" id="coordinate_plate">
             <canvas id="plate" width="400px" height="400px">Canvas not supported
             </canvas>   <!--как задать в css корректно?-->
+            <script src="canvas_drawing.js" type="text/javascript"></script>
         </div>
         <script src="canvas_drawing.js" type="text/javascript"/>
         <a href="./start.xhtml">START</a>
