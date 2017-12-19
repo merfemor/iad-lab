@@ -1,14 +1,23 @@
 package ejbs;
 
+import com.google.gson.Gson;
+import graphics.User;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
+
+import javax.ejb.Local;
 import javax.ejb.Stateless;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 
 @Stateless
-@Path("/hello")
-public class ManagerBean implements ManagerBeanInterface {
-//    private final SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
+@Path("/")
+@Local
+public class ManagerBean {
+    private final SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
+    Gson gson = new Gson();
 //
 //    @Override
 //    public List<Point> getPoints(User user) {
@@ -20,14 +29,21 @@ public class ManagerBean implements ManagerBeanInterface {
 //        return points;
 //    }
 //
-//    @Override
-//    public void sendUser(User user) {
+@POST
+@Produces("application/json")
+@Path("/users")
+public String sendUser(String userJson) {
+    User user = gson.fromJson(userJson, User.class);
+
 //        Session session = sessionFactory.openSession();
 //        session.beginTransaction();
 //        session.save(user);
 //        session.getTransaction().commit();
 //        session.close();
-//    }
+
+//        return gson.toJson(user);
+    return userJson;
+}
 //
 //    @Override
 //    public void sendPoint(Point point) {
@@ -51,8 +67,9 @@ public class ManagerBean implements ManagerBeanInterface {
 
     @GET
     @Produces("text/plain")
-    @Override
+    @Path("/hello")
     public String hello() {
+        System.out.println("HUI");
         return "Hello, HUI";
     }
 }
