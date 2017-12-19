@@ -15,20 +15,20 @@ public class User implements Serializable {
     @Expose
     private Long id;
 
-    @Lob
+    @Column
     @Expose
     private String login;
 
-    @Lob
+    @Column
     @Expose
-    private String password_hash;
+    private String password;
 
     @OneToMany
     private List<Point> points = new LinkedList<>();
 
-    public User(String login, String password_hash) {
+    public User(String login, String password) {
         this.login = login;
-        this.password_hash = password_hash;
+        this.password = password;
     }
 
     public User() {
