@@ -57,9 +57,19 @@ public class ManagerBean {
     @Produces("application/json")
     @Path("/users/{owner_id}/points")
     public String sendPoint(@PathParam("owner_id") String id, String pointJson) {
-        Point point = gson.fromJson(pointJson, Point.class);
-
         Session session = sessionFactory.openSession();
+        TypedQuery<User> query = session.createQuery("from User where id=:paramName", User.class);
+        query.setParameter("paramName", Long.valueOf(id));
+        List<User> users = query.getResultList();
+        User user = users.get(0);
+        if (users.size() == 0) {
+            ExceptMessage mes = new ExceptMessage("No such items");
+            return gson.toJson(mes);
+        }
+
+        Point point = gson.fromJson(pointJson, Point.class);
+        point.setOwner(user);
+
         session.beginTransaction();
         session.save(point);
         session.getTransaction().commit();
@@ -71,10 +81,10 @@ public class ManagerBean {
     @GET
     @Produces("application/json")
     @Path("/users/{owner_id}")
-    public String getUser(@PathParam("owner_id") String id) {
+    public String getUser(@PathParam("owner_id") String login) {
         Session session = sessionFactory.openSession();
-        TypedQuery<User> query = session.createQuery("from User where id=:paramName", User.class);
-        query.setParameter("paramName", Long.valueOf(id));
+        TypedQuery<User> query = session.createQuery("from User where login=:paramName", User.class);
+        query.setParameter("paramName", login);
         List<User> users = query.getResultList();
         if (users.size() == 0) {
             ExceptMessage mes = new ExceptMessage("No such items");
