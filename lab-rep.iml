@@ -35,8 +35,8 @@
     <orderEntry type="library" name="org.hibernate:hibernate-core:5.2.11.Final" level="project" />
     <orderEntry type="library" name="org.postgresql:postgresql:9.4.1211" level="project" />
     <orderEntry type="library" name="org.glassfish:javax.ejb:3.0.1" level="project" />
-    <orderEntry type="library" name="jackson:jackson-lgpl:0.9.3" level="project" />
     <orderEntry type="library" name="com.fasterxml.jackson.core:jackson-annotations:2.8.4" level="project" />
     <orderEntry type="library" name="javax.ws.rs:javax.ws.rs-api:2.1" level="project" />
+    <orderEntry type="library" name="com.google.code.gson:gson:2.8.2" level="project" />
   </component>
 </module>
