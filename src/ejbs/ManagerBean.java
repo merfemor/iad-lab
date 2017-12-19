@@ -1,6 +1,7 @@
 package ejbs;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import graphics.User;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -18,7 +19,7 @@ import javax.ws.rs.Produces;
 @Local
 public class ManagerBean {
     private final SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
-    Gson gson = new Gson();
+    Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
 //
 //    @Override
 //    public List<Point> getPoints(User user) {
@@ -42,8 +43,7 @@ public String sendUser(String userJson) {
     session.getTransaction().commit();
     session.close();
 
-//        return gson.toJson(user);
-    return userJson;
+    return gson.toJson(user);
 }
 //
 //    @Override
