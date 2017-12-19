@@ -10,6 +10,10 @@ import java.util.List;
 @Entity
 @Table(name = "users")
 public class User implements Serializable {
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     @Id
     @GeneratedValue
     @Expose
