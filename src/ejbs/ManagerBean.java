@@ -2,6 +2,7 @@ package ejbs;
 
 import com.google.gson.Gson;
 import graphics.User;
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
@@ -35,11 +36,11 @@ public class ManagerBean {
 public String sendUser(String userJson) {
     User user = gson.fromJson(userJson, User.class);
 
-//        Session session = sessionFactory.openSession();
-//        session.beginTransaction();
-//        session.save(user);
-//        session.getTransaction().commit();
-//        session.close();
+    Session session = sessionFactory.openSession();
+    session.beginTransaction();
+    session.save(user);
+    session.getTransaction().commit();
+    session.close();
 
 //        return gson.toJson(user);
     return userJson;

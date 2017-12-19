@@ -1,19 +1,25 @@
 package graphics;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.io.Serializable;
+import java.util.LinkedList;
+import java.util.List;
 
 @Entity
-public class User {
+@Table(name = "users")
+public class User implements Serializable {
     @Id
     @GeneratedValue
     private Long id;
-    @Column
+
+    @Lob
     private String login;
-    @Column
+
+    @Lob
     private String password_hash;
+
+    @OneToMany
+    private List<Point> points = new LinkedList<>();
 
     public User(String login, String password_hash) {
         this.login = login;
@@ -22,14 +28,4 @@ public class User {
 
     public User() {
     }
-
-    public String getLogin() {
-        return login;
-    }
-
-
-    public String getPassword_hash() {
-        return password_hash;
-    }
-
 }
