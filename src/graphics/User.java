@@ -14,6 +14,18 @@ public class User implements Serializable {
         this.id = id;
     }
 
+    public Long getId() {
+        return id;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     @Id
     @GeneratedValue
     @Expose

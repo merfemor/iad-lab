@@ -43,6 +43,7 @@ public class ManagerBean {
     @Path("/users")
     public String sendUser(String userJson) {
         User user = gson.fromJson(userJson, User.class);
+        user.setPassword(String.valueOf((user.getPassword().hashCode())));
 
         Session session = sessionFactory.openSession();
         session.beginTransaction();
@@ -80,8 +81,8 @@ public class ManagerBean {
 
     @GET
     @Produces("application/json")
-    @Path("/users/{owner_id}")
-    public String getUser(@PathParam("owner_id") String login) {
+    @Path("/users/{login}")
+    public String getUser(@PathParam("login") String login, @QueryParam("password") String password) {
         Session session = sessionFactory.openSession();
         TypedQuery<User> query = session.createQuery("from User where login=:paramName", User.class);
         query.setParameter("paramName", login);
@@ -91,17 +92,11 @@ public class ManagerBean {
             return gson.toJson(mes);
         }
         User user = users.get(0);
-
         session.close();
-
-        return gson.toJson(user);
-    }
-
-    @GET
-    @Produces("text/plain")
-    @Path("/hello")
-    public String hello() {
-        System.out.println("HUI");
-        return "Hello, HUI";
+        if (user.getPassword().equals(String.valueOf(password.hashCode()))) {
+            return gson.toJson(user.getId());
+        } else {
+            return gson.toJson("Incorrect password");
+        }
     }
 }
