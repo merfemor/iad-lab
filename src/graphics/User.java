@@ -19,7 +19,7 @@ public class User implements Serializable {
     @Expose
     private Long id;
 
-    @Column
+    @Column(unique = true)
     @Expose
     private String login;
 
