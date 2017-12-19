@@ -16,6 +16,7 @@ public class Point {
     private Double y;
 
     @ManyToOne
+    @JoinColumn(referencedColumnName = "id")
     private User owner;
 
     public Point(Double x, Double y, User owner) {
