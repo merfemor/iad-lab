@@ -11,5 +11,6 @@
         <property name="hibernate.connection.password">123456</property>
         <property name="hibernate.hbm2ddl.auto">update</property>
         <mapping class="graphics.Point"/>
+        <mapping class="graphics.User"/>
     </session-factory>
 </hibernate-configuration>
