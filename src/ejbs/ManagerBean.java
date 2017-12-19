@@ -9,10 +9,12 @@ import org.hibernate.cfg.Configuration;
 
 import javax.ejb.Local;
 import javax.ejb.Stateless;
+import javax.persistence.TypedQuery;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
+import java.util.List;
 
 @Stateless
 @Path("/")
@@ -46,25 +48,27 @@ public String sendUser(String userJson) {
     return gson.toJson(user);
 }
 //
-//    @Override
-//    public void sendPoint(Point point) {
+//@POST
+//@Produces("application/json")
+//@Path("/points")
+//    public String sendPoint(String pointJson) {
 //        Session session = sessionFactory.openSession();
 //        session.beginTransaction();
 //        session.save(point);
 //        session.getTransaction().commit();
 //        session.close();
 //    }
-//
-//    @Override
-//    public User getUser(int id) {
-//        Session session = sessionFactory.openSession();
-//        TypedQuery<User> query = session.createQuery("from User where id=:paramName", User.class);
-//        query.setParameter("paramName", id);
-//        List<User> users = query.getResultList();
-//        User user = users.get(0);
-//        session.close();
-//        return user;
-//    }
+
+
+    public User getUser(int id) {
+        Session session = sessionFactory.openSession();
+        TypedQuery<User> query = session.createQuery("from User where id=:paramName", User.class);
+        query.setParameter("paramName", id);
+        List<User> users = query.getResultList();
+        User user = users.get(0);
+        session.close();
+        return user;
+    }
 
     @GET
     @Produces("text/plain")
