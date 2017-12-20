@@ -29,10 +29,10 @@ public class ManagerBean {
         TypedQuery<Point> pointQuery = session.createQuery("from Point where owner.id=:paramName", Point.class);
         pointQuery.setParameter("paramName", Long.valueOf(id));
         List<Point> points = pointQuery.getResultList();
-        if (points.size() == 0) {
-            ExceptMessage mes = new ExceptMessage("No such items");
-            return gson.toJson(mes);
-        }
+//        if (points.size() == 0) {
+//            ExceptMessage mes = new ExceptMessage("No such items");
+//            return gson.toJson(mes);
+//        }
 
         TypedQuery<User> userQuery = session.createQuery("from User where id=:paramName", User.class);
         userQuery.setParameter("paramName", Long.valueOf(id));
@@ -71,10 +71,10 @@ public class ManagerBean {
         query.setParameter("paramName", Long.valueOf(id));
         List<User> users = query.getResultList();
         User user = users.get(0);
-        if (users.size() == 0) {
-            ExceptMessage mes = new ExceptMessage("No such items");
-            return gson.toJson(mes);
-        }
+//        if (users.size() == 0) {
+//            ExceptMessage mes = new ExceptMessage("No such items");
+//            return gson.toJson(mes);
+//        }
         if (user.getPassword().equals(String.valueOf(password.hashCode()))) {
             Point point = gson.fromJson(pointJson, Point.class);
             point.setOwner(user);
@@ -98,10 +98,10 @@ public class ManagerBean {
         TypedQuery<User> query = session.createQuery("from User where login=:paramName", User.class);
         query.setParameter("paramName", login);
         List<User> users = query.getResultList();
-        if (users.size() == 0) {
-            ExceptMessage mes = new ExceptMessage("No such items");
-            return gson.toJson(mes);
-        }
+//        if (users.size() == 0) {
+//            ExceptMessage mes = new ExceptMessage("No such items");
+//            return gson.toJson(mes);
+//        }
         User user = users.get(0);
         session.close();
         if (user.getPassword().equals(String.valueOf(password.hashCode()))) {
